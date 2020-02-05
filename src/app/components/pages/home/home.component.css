@@ -1,0 +1,18 @@
+div {
+  max-width: 1100px;
+  margin: auto;
+  overflow: auto;
+  padding: 0 2rem;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 2rem;
+  margin-bottom: 2rem;
+  align-self: center;
+}
+
+p {
+  padding: 1rem;
+}
