@@ -7,18 +7,15 @@ div {
   margin-bottom: 2rem;
 }
 
-li {
+a {
+  text-decoration: none;
+  color: black;
   display: inline-block;
   padding: 0.8rem 1.8rem;
   margin-left: 1rem;
   cursor: pointer;
 }
 
-li:hover {
+a:hover {
   background: #afa;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }
