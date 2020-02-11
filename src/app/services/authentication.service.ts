@@ -24,7 +24,7 @@ export class AuthenticationService {
       this.user = {
         username: user,
         email: user + "@gmail.com",
-        credit: 100,
+        credit: 1000,
         roles: ["user"]
       };
       console.log(this.user);
