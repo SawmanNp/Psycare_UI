@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpService } from "../services/http.service";
+import { urls } from "../services/url.enum";
 import { User } from "../models/User";
 
 @Injectable({
@@ -8,19 +9,14 @@ import { User } from "../models/User";
 })
 export class AuthenticationService {
   user?: User;
-  usersUrl: string = "api/v1/users/auth";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpService) {}
 
-  login(user: string, pass: string): void {
+  login(user: string, pass: string): Observable<User> {
     var body = {
       username: user,
       password: pass
     };
-    this.http.post<User>(this.usersUrl, JSON.stringify(body)).subscribe(res => {
-      this.user = res;
-      //TODO : login:Observable<User>
-      console.log(res);
-    });
+    return this.http.post(urls.login, body);
   }
 }
