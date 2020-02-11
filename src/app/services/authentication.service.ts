@@ -13,7 +13,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {}
 
   login(user: string, pass: string): void {
-    const body = {
+    var body = {
       username: user,
       password: pass
     };
