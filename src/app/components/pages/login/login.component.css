@@ -19,7 +19,7 @@ input {
   margin-bottom: 1rem;
 }
 
-.btn {
+button {
   display: block;
   background: #ccc;
   color: black;
@@ -31,11 +31,11 @@ input {
   float: left;
 }
 
-.btn:hover {
+button:hover {
   background: #afa;
 }
 
-.btn:disabled {
+button:disabled {
   background: #faa;
 }
 
