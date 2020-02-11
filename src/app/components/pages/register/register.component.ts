@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Validators, FormBuilder, FormGroup } from "@angular/forms";
+//import { RegisterService } from "../../../services/register.service";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: "app-register",
+  templateUrl: "./register.component.html",
+  styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  registerForm: FormGroup;
+  constructor(private fb: FormBuilder /*, private reg: RegisterService*/) {
+    this.registerForm = this.fb.group({
+      username: this.fb.control(""),
+      email: this.fb.control(""),
+      password: this.fb.control(""),
+      passrepeat: this.fb.control("")
+    });
   }
 
+  ngOnInit() {}
+
+  register() {
+    const formValue = this.registerForm.value;
+    //this.reg.register(formValue.username, formValue.email, formValue.password);
+    console.log(formValue);
+  }
 }

@@ -1,15 +1,36 @@
 <div class="container">
-  <div>
-    <label>نام کاربری</label>
-    <input type="text" name="user-name" />
-  </div>
-  <div>
-    <label>ایمیل</label>
-    <input type="email" name="email" />
-  </div>
-  <div>
-    <label>کلمه عبور</label>
-    <input type="password" name="password" />
-  </div>
-  <input class="btn" type="button" name="register" value="ورود" />
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div>
+      <label>نام کاربری</label>
+      <input
+        type="text"
+        name="user-name"
+        [formControlName]="'username'"
+        required
+      />
+    </div>
+    <div>
+      <label>ایمیل</label>
+      <input type="email" name="email" [formControlName]="'email'" required />
+    </div>
+    <div>
+      <label>کلمه عبور</label>
+      <input
+        type="password"
+        name="password"
+        [formControlName]="'password'"
+        required
+      />
+    </div>
+    <div>
+      <label>تکرار کلمه عبور</label>
+      <input
+        type="password"
+        name="passwordrepeat"
+        [formControlName]="'passrepeat'"
+        required
+      />
+    </div>
+    <input class="btn" type="submit" name="register" value="ثبت نام" />
+  </form>
 </div>
