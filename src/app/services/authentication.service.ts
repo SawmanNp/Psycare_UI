@@ -19,7 +19,16 @@ export class AuthenticationService {
         username: user,
         password: pass
       };
-      this.http.post(urls.login, body).subscribe(res => (this.user = res));
+      //this.http.post(urls.login, body).subscribe(res => (this.user = res));
+      // Dummy user
+      this.user = {
+        username: user,
+        email: user + "@gmail.com",
+        credit: 100,
+        roles: ["user"]
+      };
+      console.log(this.user);
+      //TODO : navigate to urls.panel
       this.router.navigateByUrl("");
     } catch (error) {
       console.log(error);
