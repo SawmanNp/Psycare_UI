@@ -4,6 +4,5 @@
   <a routerLink="/register" *ngIf="!isLoggedIn">ثبت نام</a>
   <a routerLink="/login" *ngIf="!isLoggedIn">ورود</a>
   <a routerLink="/about">درباره</a>
-  <!--*logOf on click-->
   <a *ngIf="isLoggedIn" (click)="logOut()">خروج</a>
 </div>

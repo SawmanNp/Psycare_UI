@@ -8,16 +8,15 @@ import { User } from "../../models/User";
   styleUrls: ["./sidenav.component.css"]
 })
 export class SidenavComponent implements OnInit {
+  isAdvisor: boolean;
   user?: User;
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   ngOnInit() {
     if (!this.auth.user) this.router.navigateByUrl("/login");
-    else this.user = this.auth.user;
-  }
-
-  isAdvisor(): boolean {
-    if (this.user.roles.includes("advisor")) return true;
-    else return false;
+    else {
+      this.user = this.auth.user;
+      this.isAdvisor = this.user.roles.includes("advisor");
+    }
   }
 }
