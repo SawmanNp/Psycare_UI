@@ -12,6 +12,7 @@ import { AboutComponent } from "./components/pages/about/about.component";
 import { LoginComponent } from "./components/pages/login/login.component";
 import { RegisterComponent } from "./components/pages/register/register.component";
 import { PanelComponent } from './components/pages/panel/panel.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PanelComponent } from './components/pages/panel/panel.component';
     AboutComponent,
     LoginComponent,
     RegisterComponent,
-    PanelComponent
+    PanelComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
