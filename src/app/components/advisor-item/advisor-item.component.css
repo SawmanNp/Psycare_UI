@@ -1,0 +1,9 @@
+@import "../../../assets/w3.css";
+
+* {
+  direction: rtl;
+}
+
+img {
+  max-height: 6em;
+}

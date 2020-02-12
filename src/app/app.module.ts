@@ -14,6 +14,7 @@ import { RegisterComponent } from "./components/pages/register/register.componen
 import { PanelComponent } from './components/pages/panel/panel.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AdvisorsComponent } from './components/pages/advisors/advisors.component';
+import { AdvisorItemComponent } from './components/advisor-item/advisor-item.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdvisorsComponent } from './components/pages/advisors/advisors.componen
     RegisterComponent,
     PanelComponent,
     SidenavComponent,
-    AdvisorsComponent
+    AdvisorsComponent,
+    AdvisorItemComponent
   ],
   imports: [
     BrowserModule,

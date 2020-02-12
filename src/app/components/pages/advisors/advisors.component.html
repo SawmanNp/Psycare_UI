@@ -1,33 +1,8 @@
 <app-navigator></app-navigator>
 <app-sidenav></app-sidenav>
 <div class="container">
-  <div
-    class="w3-container w3-card-4 w3-margin"
+  <app-advisor-item
     *ngFor="let advisor of advisors"
-  >
-    <header class="w3-container w3-light-grey">
-      <p>
-        {{ advisor.firstName + " " + advisor.lastName }}
-      </p>
-    </header>
-    <div class="w3-container w3-light-grey">
-      <div class="w3-cell w3-mobile ">
-        <img
-          class="w3-circle w3-image w3-margin-top w3-margin-bottom w3-margin-left "
-          src="{{ advisor.picUrl }}"
-          alt="advisor image"
-        />
-      </div>
-      <div class="w3-cell w3-mobile">
-        <p>
-          {{ advisor.description }}
-        </p>
-      </div>
-    </div>
-    <footer class="w3-container">
-      <button type="button" class="w3-button w3-blue w3-round w3-margin-bottom">
-        book
-      </button>
-    </footer>
-  </div>
+    [advisor]="advisor"
+  ></app-advisor-item>
 </div>

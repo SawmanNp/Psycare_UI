@@ -4,10 +4,6 @@
   direction: rtl;
 }
 
-img {
-  max-height: 6em;
-}
-
 .container {
   margin-left: 100px;
   display: flex;
