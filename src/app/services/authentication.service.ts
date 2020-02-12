@@ -28,8 +28,7 @@ export class AuthenticationService {
         roles: ["user"]
       };
       console.log(this.user);
-      //TODO : navigate to urls.panel
-      this.router.navigateByUrl("");
+      this.router.navigateByUrl("/panel");
     } catch (error) {
       console.log(error);
     }
