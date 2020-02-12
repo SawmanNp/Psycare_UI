@@ -20,3 +20,7 @@ a {
 a:hover {
   background: #afa;
 }
+
+.svg{
+  height: 20px;
+}

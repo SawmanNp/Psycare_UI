@@ -1,8 +1,30 @@
 <div>
-  <a routerLink="/">صفحه اصلی</a>
-  <a routerLink="/panel" *ngIf="isLoggedIn">صفحه کاربری</a>
+  <a routerLink="/">
+    <img class="svg" src="../../../assets/svg/home-solid.svg" alt="home" />
+    صفحه اصلی
+  </a>
+  <a routerLink="/panel" *ngIf="isLoggedIn">
+    <img
+      class="svg"
+      src="../../../assets/svg/user-circle-solid.svg"
+      alt="panel"
+    />
+    صفحه کاربری</a
+  >
   <a routerLink="/register" *ngIf="!isLoggedIn">ثبت نام</a>
   <a routerLink="/login" *ngIf="!isLoggedIn">ورود</a>
-  <a routerLink="/about">درباره</a>
-  <a *ngIf="isLoggedIn" (click)="logOut()">خروج</a>
+  <a routerLink="/about">
+    <img
+      class="svg"
+      src="../../../assets/svg/info-circle-solid.svg"
+      alt="about"
+    />
+    درباره</a>
+  <a *ngIf="isLoggedIn" (click)="logOut()">
+    <img
+      class="svg"
+      src="../../../assets/svg/sign-out-alt-solid.svg"
+      alt="sign out"
+    />
+    خروج</a>
 </div>

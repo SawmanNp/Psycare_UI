@@ -1,9 +1,51 @@
 <div>
-  <a routerLink="/">اطلاعات من</a>
-  <a routerLink="/" *ngIf="isAdvisor">برنامه‌ی قرارهای من</a>
-  <a routerLink="/" *ngIf="isAdvisor">تنظیم برنامه‌ی زمانی</a>
-  <a routerLink="/advisors">لیست مشاوران</a>
-  <a routerLink="/">قرارهای مشاوره</a>
-  <a routerLink="/">ثبت نظر</a>
-  <a routerLink="/" *ngIf="!isAdvisor">ارتقا به مشاور</a>
+  <a routerLink="/">
+    <img
+      class="svg"
+      src="../../../assets/svg/user-circle-regular.svg"
+      alt="my info"
+    />
+    اطلاعات من</a>
+  <a routerLink="/" *ngIf="isAdvisor">
+    <img
+      class="svg"
+      src="../../../assets/svg/clock-solid.svg"
+      alt="my appointments"
+    />
+    برنامه‌ی قرارهای من</a>
+  <a routerLink="/" *ngIf="isAdvisor">
+    <img
+      class="svg"
+      src="../../../assets/svg/calendar-alt-solid.svg"
+      alt="schedule"
+    />
+    تنظیم برنامه‌ی زمانی</a>
+  <a routerLink="/advisors">
+    <img
+      class="svg"
+      src="../../../assets/svg/users-solid.svg"
+      alt="advisors"
+    />
+    لیست مشاوران</a>
+  <a routerLink="/">
+    <img
+      class="svg"
+      src="../../../assets/svg/clock-solid.svg"
+      alt="my appointments"
+    />
+    قرارهای مشاوره</a>
+  <a routerLink="/">
+    <img
+      class="svg"
+      src="../../../assets/svg/star-solid.svg"
+      alt="rate"
+    />
+    ثبت نظر</a>
+  <a routerLink="/" *ngIf="!isAdvisor">
+    <img
+      class="svg"
+      src="../../../assets/svg/user-plus-solid.svg"
+      alt="upgrade"
+    />
+    ارتقا به مشاور</a>
 </div>
