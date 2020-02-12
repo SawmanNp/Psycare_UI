@@ -1,7 +1,7 @@
 @import "../../../../assets/w3.css";
 
 h1 {
-  color:white;
+  color: white;
   font-weight: 300;
   margin: 0 auto;
   width: 90%;
@@ -13,19 +13,24 @@ h1 {
   background-position: center;
   width: 100%;
   text-align: center;
-  padding:75px 0px;
+  padding: 75px 0px;
   margin-top: -32px;
-  background: #185a27f1;
+  background: rgb(54, 97, 58);
+  background: radial-gradient(
+    circle,
+    rgba(54, 97, 58, 1) 0%,
+    rgba(40, 36, 28, 1) 100%
+  );
 }
 
-.card{
-  padding:10px 300px;
+.card {
+  padding: 10px 300px;
 }
 
-.container{
+.container {
   background-position: center;
 }
 
-p{
+p {
   padding: 10px;
 }
