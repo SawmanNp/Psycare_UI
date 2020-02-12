@@ -22,6 +22,7 @@ export class AuthenticationService {
       //this.http.post(urls.login, body).subscribe(res => (this.user = res));
       // Dummy user
       this.user = {
+        id: 2,
         username: user,
         email: user + "@gmail.com",
         credit: 1000,
