@@ -11,8 +11,20 @@
     />
     صفحه کاربری</a
   >
-  <a routerLink="/register" *ngIf="!isLoggedIn">ثبت نام</a>
-  <a routerLink="/login" *ngIf="!isLoggedIn">ورود</a>
+  <a routerLink="/register" *ngIf="!isLoggedIn">
+    <img
+      class="svg"
+      src="../../../assets/svg/user-plus-solid.svg"
+      alt="register"
+    />
+    ثبت نام</a>
+  <a routerLink="/login" *ngIf="!isLoggedIn">
+    <img
+      class="svg"
+      src="../../../assets/svg/sign-in-alt-solid.svg"
+      alt="login"
+    />
+    ورود</a>
   <a routerLink="/about">
     <img
       class="svg"
