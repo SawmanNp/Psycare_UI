@@ -1,26 +1,33 @@
-<div class="w3-container w3-card-4 w3-margin" *ngFor="let advisor of advisors">
-  <header class="w3-container w3-light-grey">
-    <p>
-      {{ advisor.firstName + " " + advisor.lastName }}
-    </p>
-  </header>
-  <div class="w3-container w3-light-grey w3-row">
-    <div class="w3-quarter ">
-      <img
-        class="w3-circle w3-image"
-        src="{{ advisor.picUrl }}"
-        alt="advisor image"
-      />
-    </div>
-    <div class="w3-rest">
+<app-navigator></app-navigator>
+<app-sidenav></app-sidenav>
+<div class="container">
+  <div
+    class="w3-container w3-card-4 w3-margin"
+    *ngFor="let advisor of advisors"
+  >
+    <header class="w3-container w3-light-grey">
       <p>
-        {{ advisor.description }}
+        {{ advisor.firstName + " " + advisor.lastName }}
       </p>
+    </header>
+    <div class="w3-container w3-light-grey w3-row">
+      <div class="w3-quarter ">
+        <img
+          class="w3-circle w3-image"
+          src="{{ advisor.picUrl }}"
+          alt="advisor image"
+        />
+      </div>
+      <div class="w3-rest">
+        <p>
+          {{ advisor.description }}
+        </p>
+      </div>
     </div>
-  </div>
-  <footer>
+    <footer>
       <button type="button" class="w3-button w3-blue w3-round">
         book
       </button>
-  </footer>
+    </footer>
+  </div>
 </div>

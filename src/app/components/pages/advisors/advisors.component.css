@@ -1,9 +1,17 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
 
-*{
-    direction: rtl;
+* {
+  direction: rtl;
 }
 
 img {
-    max-height: 6em;
+  max-height: 6em;
+}
+
+.container {
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 80%;
 }
