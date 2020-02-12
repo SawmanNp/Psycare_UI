@@ -5,5 +5,5 @@
   <a routerLink="/login" *ngIf="!isLoggedIn">ورود</a>
   <a routerLink="/about">درباره</a>
   <!--*logOf on click-->
-  <a routerLink="/" *ngIf="isLoggedIn">خروج</a>
+  <a *ngIf="isLoggedIn" (click)="logOut()">خروج</a>
 </div>

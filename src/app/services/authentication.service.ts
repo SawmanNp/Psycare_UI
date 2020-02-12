@@ -33,4 +33,9 @@ export class AuthenticationService {
       console.log(error);
     }
   }
+
+  logOut() {
+    this.user = null;
+    this.router.navigateByUrl("/login");
+  }
 }
