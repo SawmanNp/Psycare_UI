@@ -4,4 +4,6 @@ export class Advisor {
   lastName: string;
   description: string;
   picUrl?: string;
+  hourlyFee?: number;
+  rating?: number;
 }

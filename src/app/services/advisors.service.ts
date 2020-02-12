@@ -10,19 +10,17 @@ export class AdvisorsService {
   getAdvisors(): Advisor[] {
     return [
       {
-        username: "forevermamood",
+        id: 1,
         firstName: "mamood",
         lastName: "karimi",
         description: "very nice advisor",
-        credit: 1,
         picUrl: "https://freesvg.org/img/cliente.png"
       },
       {
-        username: "forevermamood",
+        id: 2,
         firstName: "سامان",
         lastName: "نهاوندی",
         description: "دسکریپشن",
-        credit: 1,
         picUrl: "https://freesvg.org/img/cliente.png"
       }
     ];
