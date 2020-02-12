@@ -1,4 +1,31 @@
-div {
-  margin: auto;
+@import "../../../../assets/w3.css";
+
+h1 {
+  color:white;
+  font-weight: 300;
+  margin: 0 auto;
   width: 90%;
+  text-align: center;
+  font-size: 2.2em;
+}
+
+.banner {
+  background-position: center;
+  width: 100%;
+  text-align: center;
+  padding:75px 0px;
+  margin-top: -32px;
+  background: #185a27f1;
+}
+
+.card{
+  padding:10px 300px;
+}
+
+.container{
+  background-position: center;
+}
+
+p{
+  padding: 10px;
 }
