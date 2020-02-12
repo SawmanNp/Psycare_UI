@@ -9,7 +9,7 @@ import { User } from "../../models/User";
 })
 export class SidenavComponent implements OnInit {
   isAdvisor: boolean;
-  user?: User;
+  user: User;
   constructor(private auth: AuthenticationService, private router: Router) {}
 
   ngOnInit() {
