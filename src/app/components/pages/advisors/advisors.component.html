@@ -10,22 +10,22 @@
         {{ advisor.firstName + " " + advisor.lastName }}
       </p>
     </header>
-    <div class="w3-container w3-light-grey w3-row">
-      <div class="w3-quarter ">
+    <div class="w3-container w3-light-grey">
+      <div class="w3-cell w3-mobile ">
         <img
-          class="w3-circle w3-image"
+          class="w3-circle w3-image w3-margin-top w3-margin-bottom w3-margin-left "
           src="{{ advisor.picUrl }}"
           alt="advisor image"
         />
       </div>
-      <div class="w3-rest">
+      <div class="w3-cell w3-mobile">
         <p>
           {{ advisor.description }}
         </p>
       </div>
     </div>
-    <footer>
-      <button type="button" class="w3-button w3-blue w3-round">
+    <footer class="w3-container">
+      <button type="button" class="w3-button w3-blue w3-round w3-margin-bottom">
         book
       </button>
     </footer>
