@@ -1,6 +1,6 @@
 <app-navigator></app-navigator>
 <div class="container">
-  <form [formGroup]="registerForm" (ngSubmit)="register()">
+  <form [formGroup]="registerForm" (ngSubmit)="register(msg)">
     <div>
       <label>نام کاربری</label>
       <input
@@ -31,6 +31,9 @@
         [formControlName]="'passrepeat'"
         required
       />
+    </div>
+    <div>
+      <h6 style="color: red;" *ngIf="showMsg">کلمه عبور، با تکرار آن همخوانی ندارد</h6>
     </div>
     <input class="btn" type="submit" name="register" value="ثبت نام" />
   </form>

@@ -9,6 +9,8 @@ import { RegisterService } from "../../../services/register.service";
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  showMsg:boolean = false;
+
   constructor(private fb: FormBuilder, private reg: RegisterService) {
     this.registerForm = this.fb.group({
       username: this.fb.control(""),
@@ -22,7 +24,15 @@ export class RegisterComponent implements OnInit {
 
   register() {
     const formValue = this.registerForm.value;
-    this.reg.register(formValue.username, formValue.email, formValue.password);
-    console.log(formValue);
+    if (formValue.password === formValue.passrepeat) {
+      this.reg.register(
+        formValue.username,
+        formValue.email,
+        formValue.password
+      );
+      console.log(formValue);
+    } else {
+      this.showMsg=true;
+    }
   }
 }
