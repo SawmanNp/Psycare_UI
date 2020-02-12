@@ -1,6 +1,9 @@
 <div>
   <a routerLink="/">صفحه اصلی</a>
-  <a routerLink="/register">ثبت نام</a>
-  <a routerLink="/login">ورود</a>
+  <a routerLink="/panel" *ngIf="isLoggedIn">صفحه کاربری</a>
+  <a routerLink="/register" *ngIf="!isLoggedIn">ثبت نام</a>
+  <a routerLink="/login" *ngIf="!isLoggedIn">ورود</a>
   <a routerLink="/about">درباره</a>
+  <!--*logOf on click-->
+  <a routerLink="/" *ngIf="isLoggedIn">خروج</a>
 </div>
