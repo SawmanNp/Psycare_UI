@@ -1,3 +1,19 @@
+@import "../../../../assets/w3.css";
+
+*{
+  direction: rtl;
+}
+
+.svg-small {
+  height: 120px;
+}
+
+.quote{
+  font-weight: 600;
+  margin: 20px 36px 26px;
+}
+
+/*
 div {
   max-width: 1100px;
   margin: auto;
@@ -16,3 +32,5 @@ section {
 p {
   padding: 1rem;
 }
+*/
+
