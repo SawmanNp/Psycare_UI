@@ -4,6 +4,7 @@ import { HttpService } from "../services/http.service";
 import { Router } from "@angular/router";
 import { urls } from "../services/url.enum";
 import { AuthenticationService } from "../services/authentication.service";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -33,6 +34,9 @@ export class AdvisorsService {
       }
     ];
   }
+  // getAdvisors():Observable<Advisor[]>{
+  //   return this.http.get(urls.advisors);
+  // }
 
   upgrade(firstName: string, lastName: string, desc: string) {
     try {
@@ -41,7 +45,7 @@ export class AdvisorsService {
         last_name: lastName,
         description: desc
       };
-      //this.http.post(urls.upgrade, body).subscribe();
+      //this.http.post(urls.advisors, body).subscribe();
       // delete the next line in the end
       this.auth.user.roles.push("advisor");
 
