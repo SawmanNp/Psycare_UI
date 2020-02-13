@@ -1,0 +1,1 @@
+{"data":[{"ID":1,"UserID":1,"advisor_id":2,"start_datetime":"2020-02-16T22:19:53.148+03:30","end_datetime":"2020-02-16T22:49:53.148+03:30","Cancelled":false},{"ID":2,"UserID":1,"advisor_id":2,"start_datetime":"2020-02-16T22:19:53.148+03:30","end_datetime":"2020-02-16T22:49:53.148+03:30","Cancelled":false}],"status":200}

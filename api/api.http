@@ -1,0 +1,106 @@
+@root = http://127.0.0.1:9001
+@api = {{root}}/api/v1
+
+### 1. Create user:
+POST {{api}}/users
+
+{
+    "username":"user2",
+    "email":"abceedfs@gmail.com",
+    "password":"omegalul"
+}
+
+### 2. Get User with ID:
+GET {{api}}/users
+Cookie: {{auth.response.headers.Set-Cookie}} 
+
+
+### 3. Login user:
+# @name auth
+POST {{api}}/users/auth
+
+{
+    "username":"user1",
+    "password":"omegalul"
+}
+
+
+
+### 4. Create advisor:
+
+POST {{api}}/advisors
+Cookie: {{auth.response.headers.Set-Cookie}} 
+
+{
+    "first_name":"mamood",
+    "last_name":"bozorge",
+    "description":"failing advisor"
+}
+
+### 5. Get a single advisor with id:
+@id=2
+GET {{api}}/advisors/{{id}}
+
+### 6. Get advisors with pagination:
+
+GET {{api}}/advisors
+                    ?limit=10
+                    &offset=0
+
+
+### 7. Create appointment:
+
+POST {{api}}/appointments
+Cookie: {{auth.response.headers.Set-Cookie}}
+
+{
+    "advisor_id":2,
+    "start_datetime":"2020-02-16T18:49:53.148Z",
+    "end_datetime":"2020-02-16T19:19:53.148Z"
+}
+
+### 8. Add schedule for advisors:
+
+POST {{api}}/advisors/schedule
+Cookie: {{auth.response.headers.Set-Cookie}}
+
+{
+    "periods":
+        [
+            {
+                "day_of_week":4,
+                "start_time":"2020-02-14T12:04:47+03:30",
+                "end_time":"2020-02-14T12:34:47+03:30"
+            },
+            {
+                "day_of_week":6,
+                "start_time":"2020-02-15T12:04:47+03:30",
+                "end_time":"2020-02-15T12:34:47+03:30"
+            }
+        ]
+}
+
+### 9. Get appointments for user:
+
+GET {{api}}/appointments/user
+Cookie: {{auth.response.headers.Set-Cookie}}
+
+
+### 10. Get appointments for advisor:
+
+GET {{api}}/appointments/advisor
+Cookie: {{auth.response.headers.Set-Cookie}}
+
+
+### 11. Add rating for an appointment:
+POST {{api}}/appointments/rate
+Cookie: {{auth.response.headers.Set-Cookie}}
+
+{
+    "appointment_id":3,
+    "score":7
+}
+
+### 12. Get avg rating for an advisor:
+@adv_id=1
+GET {{api}}/advisors/{{adv_id}}/rating

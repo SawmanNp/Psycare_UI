@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Set-Cookie: jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MX0.xVyDBzWDb2oEO2QOyAxIms-CiJ3hLzW8SdDyoq5jlFo
+Date: Thu, 13 Feb 2020 17:05:05 GMT
+Content-Length: 128
+Connection: close
+
+{"data":{"username":"user1","email":"abceesadfs@gmail.com","password":"","id":1,"credit":204,"roles":["advisor"]},"status":200}

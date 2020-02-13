@@ -1,0 +1,11 @@
+{
+    "data": {
+        "id": 2,
+        "first_name": "mamood",
+        "last_name": "bozorge",
+        "description": "failing advisor",
+        "verified": true,
+        "hourly_fee": 30
+    },
+    "status": 200
+}
