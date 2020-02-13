@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { urls } from "../services/url.enum";
 import { AuthenticationService } from "../services/authentication.service";
 import { Observable } from "rxjs";
+import { Schedule } from "../models/Schedule";
 
 @Injectable({
   providedIn: "root"
@@ -57,5 +58,9 @@ export class AdvisorsService {
 
   getAdvisor(id: string): Observable<Advisor> {
     return this.http.get(urls.advisors + "/" + id);
+  }
+
+  setSchedule(body: Schedule[]): void {
+    this.http.post(urls.schedule, body).subscribe();
   }
 }

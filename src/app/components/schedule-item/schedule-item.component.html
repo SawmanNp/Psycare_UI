@@ -1,0 +1,41 @@
+<div class="schedule-item">
+  <h6>روز</h6>
+  <select name="day" [(ngModel)]="day" id="">
+    <option value="0">شنبه</option>
+    <option value="1">یک شنبه</option>
+    <option value="2">دو شنبه</option>
+    <option value="3">سه شنبه</option>
+    <option value="4">چهار شنبه</option>
+    <option value="5">پنج شنبه</option>
+    <option value="6">جمعه</option>
+  </select>
+  <h6>از</h6>
+  <div>
+    <input
+      placeholder="آغاز دوره"
+      aria-label="24hr format"
+      [ngxTimepicker]="timer1"
+      [(ngModel)]="time1"
+      [format]="24"
+      (ngModelChange)="changed1()"
+      readonly
+    />
+    <ngx-material-timepicker #timer1></ngx-material-timepicker>
+  </div>
+  <h6>تا</h6>
+  <div>
+    <input
+      placeholder="پایان دوره"
+      aria-label="24hr format"
+      [ngxTimepicker]="timer2"
+      [(ngModel)]="time2"
+      [format]="24"
+      (ngModelChange)="changed2()"
+      readonly
+    />
+    <ngx-material-timepicker #timer2></ngx-material-timepicker>
+  </div>
+  <button class="btn" (click)="setSchedule()" [disabled]="isAdded">
+    افزودن
+  </button>
+</div>

@@ -1,0 +1,18 @@
+button {
+  display: block;
+  background: #ccc;
+  color: black;
+  font-size: 1rem;
+  padding: 0.8rem 1.8rem;
+  cursor: pointer;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+button:hover {
+  background: #afa;
+}
+
+button:disabled {
+  background: #faa;
+}

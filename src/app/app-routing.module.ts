@@ -8,6 +8,7 @@ import { PanelComponent } from "./components/pages/panel/panel.component";
 import { AdvisorsComponent } from "./components/pages/advisors/advisors.component";
 import { UpgradeComponent } from "./components/pages/upgrade/upgrade.component";
 import { AdvisorViewComponent } from "./components/pages/advisor-view/advisor-view.component";
+import { ScheduleComponent } from "./components/pages/schedule/schedule.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: "panel", component: PanelComponent },
   { path: "advisors", component: AdvisorsComponent },
   { path: "upgrade", component: UpgradeComponent },
-  { path: "advisor/view/:advId", component: AdvisorViewComponent }
+  { path: "advisor/view/:advId", component: AdvisorViewComponent },
+  { path: "schedule", component: ScheduleComponent }
 ];
 
 @NgModule({

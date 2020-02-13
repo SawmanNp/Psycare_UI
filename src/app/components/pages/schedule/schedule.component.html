@@ -1,0 +1,9 @@
+<app-navigator></app-navigator>
+<app-sidenav></app-sidenav>
+<div>
+  <app-schedule-item (getSchedule)="addSchedule($event)"></app-schedule-item>
+  <div *ngFor="let schedule of periods">
+    <app-schedule-item (getSchedule)="addSchedule($event)"></app-schedule-item>
+  </div>
+  <button (click)="send()">ارسال</button>
+</div>
