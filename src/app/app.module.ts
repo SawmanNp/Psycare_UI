@@ -15,6 +15,7 @@ import { PanelComponent } from './components/pages/panel/panel.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AdvisorsComponent } from './components/pages/advisors/advisors.component';
 import { AdvisorItemComponent } from './components/advisor-item/advisor-item.component';
+import { UpgradeComponent } from './components/pages/upgrade/upgrade.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdvisorItemComponent } from './components/advisor-item/advisor-item.com
     PanelComponent,
     SidenavComponent,
     AdvisorsComponent,
-    AdvisorItemComponent
+    AdvisorItemComponent,
+    UpgradeComponent
   ],
   imports: [
     BrowserModule,

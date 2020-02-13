@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  direction: rtl;
+  font-size: 1.1rem;
+}
+
+.container {
+  max-width: 300px;
+  margin: auto;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: block;
+  background: #ccc;
+  color: black;
+  font-size: 1rem;
+  padding: 0.8rem 1.8rem;
+  cursor: pointer;
+  border-radius: 15px;
+  width: auto;
+  margin: auto;
+}
+
+.btn:hover {
+  background: #afa;
+}
+
+.btn:disabled {
+  background: #faa;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+a:hover {
+  color: blue;
+}

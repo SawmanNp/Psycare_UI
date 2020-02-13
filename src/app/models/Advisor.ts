@@ -1,7 +1,7 @@
 export class Advisor {
   id: number;
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   description: string;
   picUrl?: string;
   hourlyFee?: number;

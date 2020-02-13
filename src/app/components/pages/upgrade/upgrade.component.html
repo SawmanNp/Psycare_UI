@@ -1,0 +1,35 @@
+<app-navigator></app-navigator>
+<app-sidenav></app-sidenav>
+<div class="container">
+  <form [formGroup]="upgradeForm" (ngSubmit)="upgrade()">
+    <div>
+      <label>نام</label>
+      <input
+        type="text"
+        name="first-name"
+        [formControlName]="'first_name'"
+        required
+      />
+    </div>
+    <div>
+      <label>نام خانوادگی</label>
+      <input
+        type="text"
+        name="last-name"
+        [formControlName]="'last_name'"
+        required
+      />
+    </div>
+    <div>
+      <label>شرح</label>
+      <textarea
+        type="textarea"
+        name="description"
+        [formControlName]="'description'"
+        required
+      >
+      </textarea>
+    </div>
+    <input class="btn" type="submit" name="upgrade" value="ارسال" />
+  </form>
+</div>
