@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="info">
+  <div class="info *ngIf='isAdvisor'profile">
     <img
       class="svg"
       src="../../../assets/svg/user-circle-regular.svg"
@@ -8,6 +8,14 @@
     <p>{{ user.username }}</p>
     <p>اعتبار حساب : {{ user.credit }}</p>
   </div>
+  <a [routerLink]="['/advisor/view/', user.id]" *ngIf="isAdvisor">
+    <img
+      class="svg"
+      src="../../../assets/svg/user-circle-regular.svg"
+      alt="my appointments"
+    />
+    اطلاعات من</a
+  >
   <a routerLink="/" *ngIf="isAdvisor">
     <img
       class="svg"

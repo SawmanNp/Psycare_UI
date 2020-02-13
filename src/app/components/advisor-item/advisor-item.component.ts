@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Advisor } from "../../models/Advisor";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-advisor-item",
@@ -8,12 +9,10 @@ import { Advisor } from "../../models/Advisor";
 })
 export class AdvisorItemComponent implements OnInit {
   @Input() advisor: Advisor;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
   viewAdvisor() {
-    //this.router.navigate(['advisor-view', advId: this.advisor.id}]);
-    // add the line below to router.module
-    //{ path: '/advisor-view/:advId', name: 'advisor-view', component: advisor-view}
+    this.router.navigateByUrl("advisor/view/" + this.advisor.id.toString());
   }
 }

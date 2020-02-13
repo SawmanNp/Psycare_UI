@@ -1,0 +1,6 @@
+<app-navigator></app-navigator>
+<app-sidenav></app-sidenav>
+{{ advisor.first_name }} {{ advisor.last_name }}
+<button *ngIf="!isMyself">book</button>
+<button *ngIf="isMyself">Edit</button>
+<button *ngIf="isAdmin">Disqualify</button>

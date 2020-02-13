@@ -54,4 +54,8 @@ export class AdvisorsService {
       console.log(error);
     }
   }
+
+  getAdvisor(id: string): Observable<Advisor> {
+    return this.http.get(urls.advisors + "/" + id);
+  }
 }
