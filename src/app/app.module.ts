@@ -4,6 +4,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -47,7 +49,9 @@ import { ScheduleItemComponent } from './components/schedule-item/schedule-item.
     FormsModule,
     ReactiveFormsModule,
     NgxMaterialTimepickerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
