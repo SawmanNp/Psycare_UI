@@ -21,6 +21,8 @@ import { UpgradeComponent } from "./components/pages/upgrade/upgrade.component";
 import { AdvisorViewComponent } from "./components/pages/advisor-view/advisor-view.component";
 import { ScheduleComponent } from "./components/pages/schedule/schedule.component";
 import { ScheduleItemComponent } from './components/schedule-item/schedule-item.component';
+import { AppointmentsComponent } from './components/pages/appointments/appointments.component';
+import { AppointmentItemComponent } from './components/appointment-item/appointment-item.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ScheduleItemComponent } from './components/schedule-item/schedule-item.
     UpgradeComponent,
     AdvisorViewComponent,
     ScheduleComponent,
-    ScheduleItemComponent
+    ScheduleItemComponent,
+    AppointmentsComponent,
+    AppointmentItemComponent
   ],
   imports: [
     BrowserModule,

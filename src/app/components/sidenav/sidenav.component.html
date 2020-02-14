@@ -16,7 +16,7 @@
     />
     اطلاعات من</a
   >
-  <a routerLink="/" *ngIf="isAdvisor">
+  <a [routerLink]="['/appointments/', 'advisor']" *ngIf="isAdvisor">
     <img
       class="svg"
       src="../../../assets/svg/clock-solid.svg"
@@ -36,7 +36,7 @@
     <img class="svg" src="../../../assets/svg/users-solid.svg" alt="advisors" />
     لیست مشاوران</a
   >
-  <a routerLink="/">
+  <a [routerLink]="['/appointments/', 'user']">
     <img
       class="svg"
       src="../../../assets/svg/clock-solid.svg"
@@ -44,10 +44,10 @@
     />
     قرارهای مشاوره</a
   >
-  <a routerLink="/">
+  <!-- <a routerLink="/">
     <img class="svg" src="../../../assets/svg/star-solid.svg" alt="rate" />
     ثبت نظر</a
-  >
+  > -->
   <a routerLink="/upgrade" *ngIf="!isAdvisor">
     <img
       class="svg"

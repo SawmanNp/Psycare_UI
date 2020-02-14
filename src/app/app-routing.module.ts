@@ -9,6 +9,7 @@ import { AdvisorsComponent } from "./components/pages/advisors/advisors.componen
 import { UpgradeComponent } from "./components/pages/upgrade/upgrade.component";
 import { AdvisorViewComponent } from "./components/pages/advisor-view/advisor-view.component";
 import { ScheduleComponent } from "./components/pages/schedule/schedule.component";
+import { AppointmentsComponent } from "./components/pages/appointments/appointments.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: "advisors", component: AdvisorsComponent },
   { path: "upgrade", component: UpgradeComponent },
   { path: "advisor/view/:advId", component: AdvisorViewComponent },
-  { path: "schedule", component: ScheduleComponent }
+  { path: "schedule", component: ScheduleComponent },
+  { path: "appointments/:page", component: AppointmentsComponent }
 ];
 
 @NgModule({

@@ -10,10 +10,10 @@ import { urls } from "../services/url.enum";
 export class AppointmentsService {
   constructor(private http: HttpService) {}
 
-  getAdvisorAppointments(): Observable<Appointment> {
+  getAdvisorAppointments(): Observable<Appointment[]> {
     return this.http.get(urls.advisorAppointments);
   }
-  getUserAppointments(): Observable<Appointment> {
+  getUserAppointments(): Observable<Appointment[]> {
     return this.http.get(urls.userAppointments);
   }
 }

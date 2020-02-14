@@ -1,0 +1,10 @@
+<!-- create le appointment's view -->
+<h6>{{ appointment.ID }}</h6>
+<button *ngIf="userViewer && isPast" (click)="rate()">rate</button>
+<button
+  [disabled]="isCanceled"
+  *ngIf="userViewer && !isPast"
+  (click)="cancel()"
+>
+  cancel
+</button>
