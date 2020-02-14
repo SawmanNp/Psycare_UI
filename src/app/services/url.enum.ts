@@ -3,5 +3,7 @@ export enum urls {
   login = "/users/auth",
   register = "/users",
   advisors = "/advisors",
-  schedule = "/advisors/schedule"
+  schedule = "/advisors/schedule",
+  advisorAppointments = "/appointments/advisor",
+  userAppointments = "/appointments/user"
 }
