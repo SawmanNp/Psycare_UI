@@ -49,8 +49,10 @@ export class ScheduleComponent implements OnInit {
         end_time: new Date("2020-02-14T12:34:47+03:30")
       }
     ];
-    this.periods = this.periods.sort((a, b) => a.day_of_week - b.day_of_week);
-    if (this.periods) this.hasSchedule = true;
+    if (this.periods) {
+      this.hasSchedule = true;
+      this.periods = this.periods.sort((a, b) => a.day_of_week - b.day_of_week);
+    } else this.editMode = true;
   }
   addSchedule(sch: Schedule) {
     this.periods.push(sch);
