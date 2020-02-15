@@ -51,4 +51,13 @@ a:hover {
 
 h6{
   color: red;
+  font-weight: 500;
 }
+
+.become-red{
+  color: red;
+}
+
+/*label{
+  font-weight: 600;
+}*/

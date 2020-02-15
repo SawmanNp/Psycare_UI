@@ -13,17 +13,27 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private reg: RegisterService) {
     this.registerForm = this.fb.group({
-      username: this.fb.control('',[Validators.required, Validators.minLength(4)]),
-      email: this.fb.control('',[Validators.email, Validators.required]),
-      password: this.fb.control('',[Validators.required, Validators.minLength(4)]),
-      passrepeat: this.fb.control('',[Validators.required, Validators.minLength(4)])
+      username: this.fb.control('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.pattern('^[A-Za-z0-9 ]+$')
+      ]),
+      email: this.fb.control('', [Validators.email, Validators.required]),
+      password: this.fb.control('', [
+        Validators.required,
+        Validators.minLength(4)
+      ]),
+      passrepeat: this.fb.control('', [
+        Validators.required,
+        Validators.minLength(4)
+      ])
     });
   }
 
   ngOnInit() {}
 
-  ngOnChange(){
-    this.showMsg=false;
+  makeFalse() {
+    this.showMsg = false;
   }
 
   register() {

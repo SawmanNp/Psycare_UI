@@ -12,6 +12,7 @@ export class AdvisorItemComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {}
+  
   viewAdvisor() {
     this.router.navigateByUrl("advisor/view/" + this.advisor.id.toString());
   }

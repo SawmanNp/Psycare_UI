@@ -2,7 +2,15 @@
 <div class="container">
   <form [formGroup]="registerForm" (ngSubmit)="register(msg)">
     <div>
-      <label>نام کاربری</label>
+      <label
+        >نام کاربری
+        <span
+          [ngClass]="{
+            'become-red': registerForm.get('username').hasError('required')
+          }"
+          >*</span
+        ></label
+      >
       <input
         type="text"
         name="user-name"
@@ -11,34 +19,75 @@
       />
     </div>
     <div>
-      <h6 *ngIf="registerForm.get('username').hasError('required')">
-        نام کاربری الزامی است
-      </h6>
       <h6 *ngIf="registerForm.get('username').hasError('minlength')">
-        نام کاربری باید حداقل 4 کاراکتر باشد
+        * نام کاربری باید حداقل 4 کاراکتر باشد
+      </h6>
+      <h6 *ngIf="registerForm.get('username').hasError('pattern')">
+        * نام کاربری فقط می تواند شامل حروف انگلیسی و اعداد باشد
       </h6>
     </div>
     <div>
-      <label>ایمیل</label>
+      <label
+        >ایمیل
+        <span
+          [ngClass]="{
+            'become-red': registerForm.get('email').hasError('required')
+          }"
+          >*</span
+        ></label
+      >
       <input type="email" name="email" [formControlName]="'email'" required />
     </div>
     <div>
-      <label>کلمه عبور</label>
+      <h6 *ngIf="registerForm.get('email').hasError('email')">
+        از فرمت ایمیل پشتیبانی نمی کند
+      </h6>
+    </div>
+    <div>
+      <label
+        >کلمه عبور
+        <span
+          [ngClass]="{
+            'become-red': registerForm.get('password').hasError('required')
+          }"
+          >*</span
+        ></label
+      >
       <input
         type="password"
         name="password"
         [formControlName]="'password'"
+        (input)="makeFalse()"
         required
       />
     </div>
     <div>
-      <label>تکرار کلمه عبور</label>
+      <h6 *ngIf="registerForm.get('password').hasError('minlength')">
+        رمز عبور باید حداقل 4 کاراکتر باشد
+      </h6>
+    </div>
+    <div>
+      <label
+        >تکرار کلمه عبور
+        <span
+          [ngClass]="{
+            'become-red': registerForm.get('passrepeat').hasError('required')
+          }"
+          >*</span
+        ></label
+      >
       <input
         type="password"
         name="passwordrepeat"
         [formControlName]="'passrepeat'"
+        (input)="makeFalse()"
         required
       />
+    </div>
+    <div>
+      <h6 *ngIf="registerForm.get('passrepeat').hasError('minlength')">
+        تکرار رمز عبور باید حداقل 4 کاراکتر باشد
+      </h6>
     </div>
     <div>
       <h6 *ngIf="showMsg">کلمه عبور، با تکرار آن همخوانی ندارد</h6>
