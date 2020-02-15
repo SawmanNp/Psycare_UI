@@ -1,0 +1,36 @@
+* {
+  direction: rtl;
+  font-size: 1.1rem;
+}
+
+.schedule-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 40%;
+  min-width: 600px;
+  padding: 1rem 1rem;
+  background-color: #bfb;
+  border-radius: 20px;
+  margin: 0.2rem auto;
+}
+
+h6 {
+  margin: auto;
+}
+
+input {
+  display: inline-block;
+  width: 100px;
+  padding: 0 0.7rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+select {
+  display: inline-block;
+  width: 110px;
+  padding: 0 0.7rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}

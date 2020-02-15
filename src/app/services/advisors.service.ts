@@ -59,8 +59,13 @@ export class AdvisorsService {
   getAdvisor(id: string): Observable<Advisor> {
     return this.http.get(urls.advisors + "/" + id);
   }
-
+  getSchedule(): Observable<any> {
+    return this.http.get(urls.schedule);
+  }
   setSchedule(body: Schedule[]): void {
     this.http.post(urls.schedule, body).subscribe();
+  }
+  updateSchedule(body: Schedule[]): void {
+    this.http.put(urls.schedule, body).subscribe();
   }
 }

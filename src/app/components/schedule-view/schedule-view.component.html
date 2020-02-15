@@ -1,0 +1,10 @@
+<div *ngFor="let sch of schedule">
+  <div class="schedule-item">
+    <h6>روز</h6>
+    <h6>{{ setDay(sch.day_of_week) }}</h6>
+    <h6>از</h6>
+    <h6>{{ timeHM(sch.start_time) }}</h6>
+    <h6>تا</h6>
+    <h6>{{ timeHM(sch.end_time) }}</h6>
+  </div>
+</div>

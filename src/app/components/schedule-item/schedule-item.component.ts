@@ -12,7 +12,6 @@ export class ScheduleItemComponent implements OnInit {
   time1: string;
   time2: string;
   schedule: Schedule;
-  isAdded: boolean = false;
 
   constructor() {}
 
@@ -28,7 +27,6 @@ export class ScheduleItemComponent implements OnInit {
     if (this.time1 && this.time2 && this.day && this.time1 < this.time2) {
       this.schedule = new Schedule(this.time1, this.time2, this.day);
       this.getSchedule.emit(this.schedule);
-      this.isAdded = true;
     }
   }
 }
