@@ -1,5 +1,9 @@
 <app-navigator></app-navigator>
 <app-sidenav></app-sidenav>
+<div class="container">
+  <button class="btn" (click)="prevWeek()">هفته‌ی قبل</button>
+  <button class="btn" (click)="nextWeek()">هفته‌ی بعد</button>
+</div>
 <div>
   <app-booking-item
     *ngFor="let BI of bookingItems"

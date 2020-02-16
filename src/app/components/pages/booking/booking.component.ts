@@ -86,6 +86,45 @@ export class BookingComponent implements OnInit {
     today.setHours(0);
     today.setMinutes(0);
     today.setSeconds(0);
+
+    this.set(today);
+    console.log(today);
+  }
+
+  nextWeek() {
+    this.weekNumber += 1;
+    var today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    today = new Date(
+      today.getTime() + this.weekNumber * 7 * 24 * 60 * 60 * 1000
+    );
+    this.bookingItems = [];
+    this.set(today);
+  }
+  prevWeek() {
+    this.weekNumber -= 1;
+    var today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+    today = new Date(
+      today.getTime() + this.weekNumber * 7 * 24 * 60 * 60 * 1000
+    );
+    this.bookingItems = [];
+    this.set(today);
+  }
+
+  sameDay(d1: Date, d2: Date): boolean {
+    return (
+      d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate()
+    );
+  }
+
+  set(today: Date): void {
     for (var i = 0; i < 7; i++) {
       var bookingItemSchedule: Schedule[] = [];
       var bookingitemAppointments: Appointment[] = [];
@@ -112,47 +151,5 @@ export class BookingComponent implements OnInit {
       }
       today = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000);
     }
-    console.log(today);
-  }
-
-  nextWeek() {
-    this.weekNumber += 1;
-    var today = new Date();
-    today.setHours(0);
-    today.setMinutes(0);
-    today.setSeconds(0);
-    today = new Date(
-      today.getTime() + this.weekNumber * 7 * 24 * 60 * 60 * 1000
-    );
-    this.bookingItems = [];
-    for (var i = 0; i < 7; i++) {
-      var bookingItemSchedule: Schedule[] = [];
-      var bookingitemAppointments: Appointment[] = [];
-      this.advisorSchedule.forEach(schd => {
-        if (schd.day_of_week == today.getDay()) {
-          bookingItemSchedule.push(schd);
-        }
-      });
-      this.advisorAppointments.forEach(appt => {
-        if (this.sameDay(appt.start_datetime, today)) {
-          bookingitemAppointments.push(appt);
-        }
-      });
-      var BI = new BookingItem(
-        today,
-        bookingItemSchedule,
-        bookingitemAppointments
-      );
-      this.bookingItems.push(BI);
-      today = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000);
-    }
-  }
-
-  sameDay(d1: Date, d2: Date): boolean {
-    return (
-      d1.getFullYear() === d2.getFullYear() &&
-      d1.getMonth() === d2.getMonth() &&
-      d1.getDate() === d2.getDate()
-    );
   }
 }
