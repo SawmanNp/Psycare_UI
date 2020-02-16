@@ -25,6 +25,8 @@ import { ScheduleItemComponent } from './components/schedule-item/schedule-item.
 import { AppointmentsComponent } from './components/pages/appointments/appointments.component';
 import { AppointmentItemComponent } from './components/appointment-item/appointment-item.component';
 import { ScheduleViewComponent } from './components/schedule-view/schedule-view.component';
+import { BookingComponent } from './components/pages/booking/booking.component';
+import { BookingItemComponent } from './components/booking-item/booking-item.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ScheduleViewComponent } from './components/schedule-view/schedule-view.
     ScheduleItemComponent,
     AppointmentsComponent,
     AppointmentItemComponent,
-    ScheduleViewComponent
+    ScheduleViewComponent,
+    BookingComponent,
+    BookingItemComponent
   ],
   imports: [
     BrowserModule,

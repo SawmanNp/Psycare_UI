@@ -4,6 +4,7 @@ export enum urls {
   register = "/users",
   advisors = "/advisors",
   schedule = "/advisors/schedule",
+  appointments = "/appointments",
   advisorAppointments = "/appointments/advisor",
   userAppointments = "/appointments/user"
 }
