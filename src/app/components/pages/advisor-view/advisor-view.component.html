@@ -1,6 +1,36 @@
 <app-navigator></app-navigator>
 <app-sidenav></app-sidenav>
-{{ advisor.first_name }} {{ advisor.last_name }}
-<button *ngIf="!isMyself">book</button>
-<button *ngIf="isMyself">Edit</button>
-<button *ngIf="isAdmin">Disqualify</button>
+<div class="w3-container">
+  <div class="w3-row" style="width: 50%">
+    <div class="w3-col w3-card-4">
+      <!--Name and Last name-->
+      <header class="w3-padding-16 w3-center">
+        <h2>{{ advisor.first_name }} {{ advisor.last_name }}</h2>
+      </header>
+      <!--Image-->
+      <div class="w3-col w3-padding-16 w3-center">
+        <img
+          src="https://freesvg.org/img/cliente.png"
+          alt="advisor image"
+          style="width: 400px;"
+        />
+      </div>
+      <!--Description-->
+      <div class="w3-col w3-padding-16">
+          <p class="w3-right">
+            {{ advisor.description }}
+          </p>
+      </div>
+      <!--Rating-->
+      <div class="w3-col w3-center w3-padding-16">
+        rating placeholder
+      </div>
+      <!--Actions-->
+      <footer>
+        <button class="w3-btn w3-green" *ngIf="!isMyself">book</button>
+        <button class="w3-btn w3-yellow" *ngIf="isMyself">Edit</button>
+        <button class="w3-btn w3-red" *ngIf="isAdmin">Disqualify</button>
+      </footer>
+    </div>
+  </div>
+</div>
