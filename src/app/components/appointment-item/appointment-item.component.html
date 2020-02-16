@@ -7,15 +7,22 @@
       src="../../../assets/svg/circle-solid-red.svg"
       alt="sa"
       style="height: 30px;"
-      *ngIf="isPast"
-      tooltip="گذشته" placement="top"
+      *ngIf="isPast && !appointment.Cancelled"
+      tooltip="تمام شده" placement="top"
     />
     <img
       src="../../../assets/svg/circle-solid-green.svg"
       alt="sa"
       style="height: 30px;"
-      *ngIf="!isPast"
+      *ngIf="!isPast && !appointment.Cancelled"
       tooltip="در جریان" placement="top"
+    />
+    <img
+      src="../../../assets/svg/times-circle-solid.svg"
+      alt="sa"
+      style="height: 30px;"
+      *ngIf="isCanceled || appointment.Cancelled"
+      tooltip="کنسل شده" placement="top"
     />
   </div>
   <!--appointment id-->
@@ -110,7 +117,7 @@
   >
     <button
       class="w3-btn w3-red w3-round-large"
-      [disabled]="isCanceled"
+      [disabled]="isCanceled || appointment.Cancelled"
       (click)="cancel()"
     >
       کنسل کنید
