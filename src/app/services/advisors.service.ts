@@ -41,7 +41,12 @@ export class AdvisorsService {
   //   return this.http.get(urls.advisors);
   // }
 
-  upgrade(firstName: string, lastName: string, desc: string, hf: number) {
+  upgrade(
+    firstName: string,
+    lastName: string,
+    desc: string,
+    hf: number
+  ): Observable<any> {
     try {
       var body = {
         first_name: firstName,
@@ -49,11 +54,7 @@ export class AdvisorsService {
         description: desc,
         hourly_fee: hf
       };
-      //this.http.post(urls.advisors, body).subscribe();
-      // delete the next line in the end
-      this.auth.user.roles.push("advisor");
-
-      this.router.navigateByUrl("/panel");
+      return this.http.post(urls.advisors, body);
     } catch (error) {
       console.log(error);
     }

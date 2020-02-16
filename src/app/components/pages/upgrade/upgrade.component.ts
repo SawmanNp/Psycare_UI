@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { AdvisorsService } from "../../../services/advisors.service";
+import { AuthenticationService } from "src/app/services/authentication.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-upgrade",
@@ -9,7 +11,12 @@ import { AdvisorsService } from "../../../services/advisors.service";
 })
 export class UpgradeComponent implements OnInit {
   upgradeForm: FormGroup;
-  constructor(private fb: FormBuilder, private adv: AdvisorsService) {
+  constructor(
+    private fb: FormBuilder,
+    private adv: AdvisorsService,
+    private auth: AuthenticationService,
+    private router: Router
+  ) {
     this.upgradeForm = this.fb.group({
       first_name: this.fb.control(""),
       last_name: this.fb.control(""),
@@ -21,12 +28,21 @@ export class UpgradeComponent implements OnInit {
   ngOnInit() {}
   upgrade() {
     const formValue = this.upgradeForm.value;
-    this.adv.upgrade(
-      formValue.first_name,
-      formValue.last_name,
-      formValue.description,
-      formValue.hourly_fee
-    );
+    if (document.cookie.indexOf("jwt") > -1) {
+      this.adv
+        .upgrade(
+          formValue.first_name,
+          formValue.last_name,
+          formValue.description,
+          formValue.hourly_fee
+        )
+        .subscribe(res => {
+          if (res["status"] == 200) {
+            this.auth.user.roles.push("advisor");
+            this.router.navigateByUrl("/panel");
+          }
+        });
+    }
     console.log(formValue);
   }
 }
