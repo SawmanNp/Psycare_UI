@@ -3,6 +3,17 @@
   font-size: 1.1rem;
 }
 
+.date {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  min-width: 600px;
+  padding: 1rem 1rem;
+  background-color: khaki;
+  border-radius: 20px;
+  margin: 0.2rem auto;
+}
+
 .schedule-item {
   display: flex;
   flex-direction: row;

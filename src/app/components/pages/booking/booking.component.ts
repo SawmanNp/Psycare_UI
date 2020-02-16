@@ -12,9 +12,9 @@ import { BookingItem } from "src/app/models/BookingItem";
 })
 export class BookingComponent implements OnInit {
   advisorId: string;
-  advisorSchedule: Schedule[];
-  advisorAppointments: Appointment[];
-  bookingItems: BookingItem[];
+  advisorSchedule: Schedule[] = [];
+  advisorAppointments: Appointment[] = [];
+  bookingItems: BookingItem[] = [];
   weekNumber: number = 0;
   constructor(
     private route: ActivatedRoute,
@@ -23,12 +23,57 @@ export class BookingComponent implements OnInit {
 
   ngOnInit() {
     this.advisorId = this.route.snapshot.paramMap.get("advId");
-    this.aps.getAdvisorSchedule(this.advisorId).subscribe(res => {
-      if (res["status"] == 200) this.advisorSchedule = res("data");
-    });
-    this.aps.getAdvisorAppointmentsById(this.advisorId).subscribe(res => {
-      if (res["status"] == 200) this.advisorAppointments = res("data");
-    });
+    // this.aps.getAdvisorSchedule(this.advisorId).subscribe(res => {
+    //   if (res["status"] == 200) this.advisorSchedule = res("data");
+    // });
+    // this.aps.getAdvisorAppointmentsById(this.advisorId).subscribe(res => {
+    //   if (res["status"] == 200) this.advisorAppointments = res("data");
+    // });
+    this.advisorSchedule = [
+      {
+        day_of_week: 4,
+        start_time: new Date("2020-02-14T12:04:47+03:30"),
+        end_time: new Date("2020-02-14T12:34:47+03:30")
+      },
+      {
+        day_of_week: 0,
+        start_time: new Date("2020-02-14T12:04:47+03:30"),
+        end_time: new Date("2020-02-14T12:34:47+03:30")
+      },
+      {
+        day_of_week: 3,
+        start_time: new Date("2020-02-14T12:04:47+03:30"),
+        end_time: new Date("2020-02-14T12:34:47+03:30")
+      },
+      {
+        day_of_week: 2,
+        start_time: new Date("2020-02-17T12:04:47+03:30"),
+        end_time: new Date("2020-02-17T16:34:47+03:30")
+      },
+      {
+        day_of_week: 6,
+        start_time: new Date("2020-02-14T12:04:47+03:30"),
+        end_time: new Date("2020-02-14T12:34:47+03:30")
+      }
+    ];
+    this.advisorAppointments = [
+      {
+        ID: 1,
+        UserID: 1,
+        advisor_id: 2,
+        start_datetime: new Date("2020-02-18T13:19:53.148+03:30"),
+        end_datetime: new Date("2020-02-18T14:49:53.148+03:30"),
+        Cancelled: false
+      },
+      {
+        ID: 2,
+        UserID: 1,
+        advisor_id: 2,
+        start_datetime: new Date("2020-02-16T22:19:53.148+03:30"),
+        end_datetime: new Date("2020-02-16T22:49:53.148+03:30"),
+        Cancelled: false
+      }
+    ];
     var today = new Date();
     today.setHours(0);
     today.setMinutes(0);
@@ -46,12 +91,17 @@ export class BookingComponent implements OnInit {
           bookingitemAppointments.push(appt);
         }
       });
-      var BI = new BookingItem(
-        today,
-        bookingItemSchedule,
-        bookingitemAppointments
-      );
-      this.bookingItems.push(BI);
+      if (
+        typeof bookingItemSchedule !== "undefined" &&
+        bookingItemSchedule.length > 0
+      ) {
+        var BI = new BookingItem(
+          today,
+          bookingItemSchedule,
+          bookingitemAppointments
+        );
+        this.bookingItems.push(BI);
+      }
       today = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000);
     }
     console.log(today);

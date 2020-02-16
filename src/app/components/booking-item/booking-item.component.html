@@ -1,20 +1,24 @@
-<div>
-  <app-schedule-view [schedule]="item.scheduels"></app-schedule-view>
-  <div *ngIf="item.appointments">
-    <h6>به جز :</h6>
-    <div *ngFor="let apts of item.appointments">
-      <h6>
-        {{ apts.start_datetime.getHours() }} :
-        {{ apts.start_datetime.getMinutes() }}
-      </h6>
-      <h6>تا</h6>
-      <h6>
-        {{ apts.end_datetime.getHours() }} :
-        {{ apts.end_datetime.getMinutes() }}
-      </h6>
+<div class="container">
+  <div class="date">
+    <h6>تاریخ :</h6>
+    <h6>{{ date }}</h6>
+  </div>
+  <app-schedule-view [schedule]="schedules"></app-schedule-view>
+  <div *ngIf="hasAppointments">
+    <div class="exclude">
+      <h6>زمان‌های پر شده</h6>
+      <div>
+        <p *ngFor="let apts of appointments">
+          {{ apts.end_datetime.getMinutes() }} :
+          {{ apts.end_datetime.getHours() }}
+          -
+          {{ apts.start_datetime.getMinutes() }}:
+          {{ apts.start_datetime.getHours() }}
+        </p>
+      </div>
     </div>
   </div>
-  <div *ngIf="!isPast">
+  <div class="reserveField" *ngIf="!isPast">
     <div>
       <input
         placeholder="آغاز دوره"
