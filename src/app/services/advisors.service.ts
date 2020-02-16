@@ -24,14 +24,16 @@ export class AdvisorsService {
         first_name: "mamood",
         last_name: "karimi",
         description: "very nice advisor",
-        picUrl: "https://freesvg.org/img/cliente.png"
+        picUrl: "https://freesvg.org/img/cliente.png",
+        hourly_fee: 50
       },
       {
         id: 2,
         first_name: "سامان",
         last_name: "نهاوندی",
         description: "دسکریپشن",
-        picUrl: "https://freesvg.org/img/cliente.png"
+        picUrl: "https://freesvg.org/img/cliente.png",
+        hourly_fee: 50
       }
     ];
   }
@@ -39,12 +41,13 @@ export class AdvisorsService {
   //   return this.http.get(urls.advisors);
   // }
 
-  upgrade(firstName: string, lastName: string, desc: string) {
+  upgrade(firstName: string, lastName: string, desc: string, hf: number) {
     try {
       var body = {
         first_name: firstName,
         last_name: lastName,
-        description: desc
+        description: desc,
+        hourly_fee: hf
       };
       //this.http.post(urls.advisors, body).subscribe();
       // delete the next line in the end

@@ -1,5 +1,5 @@
 export enum urls {
-  baseUrl = "http://194.5.192.43:9001/api/v1",
+  baseUrl = "http://194.5.192.43/api/v1",
   login = "/users/auth",
   register = "/users",
   advisors = "/advisors",

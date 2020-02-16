@@ -13,7 +13,8 @@ export class UpgradeComponent implements OnInit {
     this.upgradeForm = this.fb.group({
       first_name: this.fb.control(""),
       last_name: this.fb.control(""),
-      description: this.fb.control("")
+      description: this.fb.control(""),
+      hourly_fee: this.fb.control("")
     });
   }
 
@@ -23,7 +24,8 @@ export class UpgradeComponent implements OnInit {
     this.adv.upgrade(
       formValue.first_name,
       formValue.last_name,
-      formValue.description
+      formValue.description,
+      formValue.hourly_fee
     );
     console.log(formValue);
   }

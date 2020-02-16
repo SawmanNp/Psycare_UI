@@ -11,32 +11,37 @@ import { Router } from "@angular/router";
 export class AuthenticationService {
   user?: User;
 
-  constructor(private http: HttpService, private router: Router) {}
+  constructor(private http: HttpService, private router: Router) {
+    if (document.cookie.indexOf("jwt") > -1)
+      this.http.get("/users").subscribe(res => {
+        if (res["status"] == 200) this.user = res["data"];
+        router.navigateByUrl("panel");
+      });
+  }
 
-  login(user: string, pass: string): void {
+  login(user: string, pass: string): Observable<any> {
     try {
       var body = {
         username: user,
         password: pass
       };
-      //this.http.post(urls.login, body).subscribe(res => (this.user = res));
-      // Dummy user
-      this.user = {
-        id: 2,
-        username: user,
-        email: user + "@gmail.com",
-        credit: 1000,
-        roles: ["user"]
-      };
-      console.log(this.user);
-      this.router.navigateByUrl("/panel");
+      return this.http.post(urls.login, body);
     } catch (error) {
       console.log(error);
     }
   }
 
+  setCookie(cookie: string) {
+    document.cookie = "jwt=" + cookie;
+  }
+
+  setUser(user: User) {
+    this.user = user;
+  }
+
   logOut() {
     this.user = null;
+    document.cookie = "jwt" + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
     this.router.navigateByUrl("/login");
   }
 }

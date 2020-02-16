@@ -15,18 +15,30 @@ export class HttpService {
   }*/
 
   get(relativeUrl: string): Observable<any> {
-    return this.http.get(urls.baseUrl + relativeUrl);
+    return this.http.get(urls.baseUrl + relativeUrl, {
+      headers: new HttpHeaders({ "Content-Type": "application/json" }),
+      withCredentials: true
+    });
   }
 
   post(relativeUrl: string, data: any): Observable<any> {
-    return this.http.post(urls.baseUrl + relativeUrl, data);
+    return this.http.post(urls.baseUrl + relativeUrl, data, {
+      headers: new HttpHeaders({ "Content-Type": "application/json" }),
+      withCredentials: true
+    });
   }
 
   put(relativeUrl: string, data: any): Observable<any> {
-    return this.http.put(urls.baseUrl + relativeUrl, data);
+    return this.http.put(urls.baseUrl + relativeUrl, data, {
+      headers: new HttpHeaders({ "Content-Type": "application/json" }),
+      withCredentials: true
+    });
   }
 
   delete(relativeUrl: string): Observable<any> {
-    return this.http.delete(urls.baseUrl + relativeUrl);
+    return this.http.delete(urls.baseUrl + relativeUrl, {
+      headers: new HttpHeaders({ "Content-Type": "application/json" }),
+      withCredentials: true
+    });
   }
 }
