@@ -1,38 +1,44 @@
 <app-navigator></app-navigator>
-<app-sidenav></app-sidenav>
-<div class="w3-container">
-  <div class="w3-row" style="width: 50%">
-    <div class="w3-col w3-card-4 w3-container">
-      <!--Name and Last name-->
-      <header class="w3-padding-16 w3-center">
-        <h2>{{ advisor.first_name }} {{ advisor.last_name }}</h2>
-      </header>
-      <!--Image-->
-      <div class="w3-col w3-padding-16 w3-center">
-        <img
-          src="https://freesvg.org/img/cliente.png"
-          alt="advisor image"
-          style="width: 400px;"
-        />
+<div class="grid">
+  <div class="w3-container">
+    <div class="w3-row" style="width: 50%">
+      <div class="w3-col w3-card-4 w3-container">
+        <!--Name and Last name-->
+        <header class="w3-padding-16 w3-center">
+          <h2>{{ advisor.first_name }} {{ advisor.last_name }}</h2>
+        </header>
+        <!--Image-->
+        <div class="w3-col w3-padding-16 w3-center">
+          <img
+            src="https://freesvg.org/img/cliente.png"
+            alt="advisor image"
+            style="width: 400px;"
+          />
+        </div>
+        <!--Description-->
+        <div class="w3-col w3-padding-16">
+          <p class="w3-right">
+            {{ advisor.description }}
+          </p>
+        </div>
+        <!--Rating-->
+        <div class="w3-col w3-padding-16" style="padding-left: 38%;">
+          <app-star-rating
+            [rating]="advisor.rating / 2"
+            [isEditable]="false"
+            [dataSet]="ratingConfig"
+          ></app-star-rating>
+        </div>
+        <!--Actions-->
+        <footer>
+          <button class="w3-btn w3-green" *ngIf="!isMyself" (click)="book()">
+            book
+          </button>
+          <button class="w3-btn w3-yellow" *ngIf="isMyself">Edit</button>
+          <button class="w3-btn w3-red" *ngIf="isAdmin">Disqualify</button>
+        </footer>
       </div>
-      <!--Description-->
-      <div class="w3-col w3-padding-16">
-        <p class="w3-right">
-          {{ advisor.description }}
-        </p>
-      </div>
-      <!--Rating-->
-      <div class="w3-col w3-padding-16" style="padding-left: 38%;">
-        <app-star-rating [rating]="advisor.rating/2" [isEditable] = "false" [dataSet] = "ratingConfig"></app-star-rating>
-      </div>
-      <!--Actions-->
-      <footer>
-        <button class="w3-btn w3-green" *ngIf="!isMyself" (click)="book()">
-          book
-        </button>
-        <button class="w3-btn w3-yellow" *ngIf="isMyself">Edit</button>
-        <button class="w3-btn w3-red" *ngIf="isAdmin">Disqualify</button>
-      </footer>
     </div>
   </div>
+  <app-sidenav></app-sidenav>
 </div>
