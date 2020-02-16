@@ -1,22 +1,12 @@
 <app-navigator></app-navigator>
 <div class="container">
-  <form [formGroup]="registerForm" (ngSubmit)="register(msg)">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div>
-      <label
-        >نام کاربری
-        <span
-          [ngClass]="{
+      <label>نام کاربری
+        <span [ngClass]="{
             'become-red': registerForm.get('username').hasError('required')
-          }"
-          >*</span
-        ></label
-      >
-      <input
-        type="text"
-        name="user-name"
-        [formControlName]="'username'"
-        required
-      />
+          }">*</span></label>
+      <input type="text" name="user-name" [formControlName]="'username'" required />
     </div>
     <div>
       <h6 *ngIf="registerForm.get('username').hasError('minlength')">
@@ -27,15 +17,10 @@
       </h6>
     </div>
     <div>
-      <label
-        >ایمیل
-        <span
-          [ngClass]="{
+      <label>ایمیل
+        <span [ngClass]="{
             'become-red': registerForm.get('email').hasError('required')
-          }"
-          >*</span
-        ></label
-      >
+          }">*</span></label>
       <input type="email" name="email" [formControlName]="'email'" required />
     </div>
     <div>
@@ -44,22 +29,11 @@
       </h6>
     </div>
     <div>
-      <label
-        >کلمه عبور
-        <span
-          [ngClass]="{
+      <label>کلمه عبور
+        <span [ngClass]="{
             'become-red': registerForm.get('password').hasError('required')
-          }"
-          >*</span
-        ></label
-      >
-      <input
-        type="password"
-        name="password"
-        [formControlName]="'password'"
-        (input)="makeFalse()"
-        required
-      />
+          }">*</span></label>
+      <input type="password" name="password" [formControlName]="'password'" (input)="makeFalse()" required />
     </div>
     <div>
       <h6 *ngIf="registerForm.get('password').hasError('minlength')">
@@ -67,22 +41,11 @@
       </h6>
     </div>
     <div>
-      <label
-        >تکرار کلمه عبور
-        <span
-          [ngClass]="{
+      <label>تکرار کلمه عبور
+        <span [ngClass]="{
             'become-red': registerForm.get('passrepeat').hasError('required')
-          }"
-          >*</span
-        ></label
-      >
-      <input
-        type="password"
-        name="passwordrepeat"
-        [formControlName]="'passrepeat'"
-        (input)="makeFalse()"
-        required
-      />
+          }">*</span></label>
+      <input type="password" name="passwordrepeat" [formControlName]="'passrepeat'" (input)="makeFalse()" required />
     </div>
     <div>
       <h6 *ngIf="registerForm.get('passrepeat').hasError('minlength')">
@@ -92,12 +55,6 @@
     <div>
       <h6 *ngIf="showMsg">کلمه عبور، با تکرار آن همخوانی ندارد</h6>
     </div>
-    <input
-      class="btn"
-      type="submit"
-      name="register"
-      value="ثبت نام"
-      [disabled]="!registerForm.valid"
-    />
+    <input class="btn" type="submit" name="register" value="ثبت نام" [disabled]="!registerForm.valid" />
   </form>
 </div>

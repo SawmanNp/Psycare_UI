@@ -30,6 +30,7 @@ export class AppointmentItemComponent implements OnInit {
   cancel(): void {
     //send the request
     // this.aps.cancel(this.appointment.ID)
+    this.appointment.Cancelled=true;
     this.isCanceled = true;
   }
   rate(): void {
