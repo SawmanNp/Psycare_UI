@@ -1,1 +1,5 @@
-<p>booking works!</p>
+<app-booking-item
+  *ngFor="let BI of bookingItems"
+  [item]="BI"
+  [advisorId]="advisorId"
+></app-booking-item>
