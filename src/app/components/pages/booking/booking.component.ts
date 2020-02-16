@@ -72,6 +72,14 @@ export class BookingComponent implements OnInit {
         start_datetime: new Date("2020-02-16T22:19:53.148+03:30"),
         end_datetime: new Date("2020-02-16T22:49:53.148+03:30"),
         Cancelled: false
+      },
+      {
+        ID: 2,
+        UserID: 1,
+        advisor_id: 2,
+        start_datetime: new Date("2020-02-18T22:19:53.148+03:30"),
+        end_datetime: new Date("2020-02-18T22:49:53.148+03:30"),
+        Cancelled: false
       }
     ];
     var today = new Date();

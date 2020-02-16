@@ -27,7 +27,7 @@ export class BookingItemComponent implements OnInit {
     this.today.setHours(0);
     this.today.setMinutes(0);
     this.today.setSeconds(0);
-    if (this.item.day < this.today) this.isPast = true;
+    if (this.date < this.today) this.isPast = true;
     this.schedules = this.item.schedules;
     this.appointments = this.item.appointments;
     if (
@@ -40,9 +40,12 @@ export class BookingItemComponent implements OnInit {
     var start = this.setDate(this.item.day, this.time1);
     var end = this.setDate(this.item.day, this.time2);
     this.aps.setAppointment(this.advisorId, start, end);
+    console.log(start);
+    console.log(end);
   }
   setDate(date: Date, time: string): Date {
-    date.setHours(+time.split(":")[0], +time.split(":")[1], 0);
-    return date;
+    var d: Date = new Date(date);
+    d.setHours(+time.split(":")[0], +time.split(":")[1], 0);
+    return d;
   }
 }
