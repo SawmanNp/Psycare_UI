@@ -1,6 +1,4 @@
-@import "../../../../assets/w3.css" ;
-
-.grid{
-    display: grid;
-    grid-template-columns: 10fr 2fr;
+.grid {
+  display: grid;
+  grid-template-columns: 10fr 2fr;
 }

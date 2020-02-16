@@ -1,12 +1,10 @@
-@import "../../../assets/w3.css" ;
-
-*{
-    direction: rtl;
+* {
+  direction: rtl;
 }
 
-.title{
-    color: darkslategray;
+.title {
+  color: darkslategray;
 }
-.content{
-    font-size: large;
+.content {
+  font-size: large;
 }

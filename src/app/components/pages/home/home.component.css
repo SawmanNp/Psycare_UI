@@ -1,6 +1,4 @@
-@import "../../../../assets/w3.css";
-
-*{
+* {
   direction: rtl;
 }
 
@@ -8,7 +6,7 @@
   height: 120px;
 }
 
-.quote{
+.quote {
   font-weight: 600;
   margin: 20px 36px 26px;
 }
@@ -33,4 +31,3 @@ p {
   padding: 1rem;
 }
 */
-
