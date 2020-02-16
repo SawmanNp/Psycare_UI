@@ -1,7 +1,7 @@
 <div class="container">
   <div class="date">
     <h6>تاریخ :</h6>
-    <h6>{{ date }}</h6>
+    <h6>{{ date.toLocaleDateString("fa-IR") }}</h6>
   </div>
   <app-schedule-view [schedule]="schedules"></app-schedule-view>
   <div *ngIf="hasAppointments">
