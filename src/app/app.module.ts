@@ -4,6 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { StarRatingModule } from 'angular-rating-star';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -53,7 +54,8 @@ import { ScheduleViewComponent } from './components/schedule-view/schedule-view.
     FormsModule,
     ReactiveFormsModule,
     NgxMaterialTimepickerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StarRatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

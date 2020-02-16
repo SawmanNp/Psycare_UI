@@ -2,7 +2,7 @@
 <app-sidenav></app-sidenav>
 <div class="w3-container">
   <div class="w3-row" style="width: 50%">
-    <div class="w3-col w3-card-4">
+    <div class="w3-col w3-card-4 w3-container">
       <!--Name and Last name-->
       <header class="w3-padding-16 w3-center">
         <h2>{{ advisor.first_name }} {{ advisor.last_name }}</h2>
@@ -22,8 +22,8 @@
           </p>
       </div>
       <!--Rating-->
-      <div class="w3-col w3-center w3-padding-16">
-        rating placeholder
+      <div class="w3-col w3-padding-16" style="padding-left: 38%;">
+        <app-star-rating [rating]="advisor.rating/2" [isEditable] = "false" [dataSet] = "ratingConfig"></app-star-rating>
       </div>
       <!--Actions-->
       <footer>
