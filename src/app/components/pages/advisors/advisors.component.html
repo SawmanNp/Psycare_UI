@@ -1,8 +1,10 @@
 <app-navigator></app-navigator>
-<app-sidenav></app-sidenav>
-<div class="container">
-  <app-advisor-item
-    *ngFor="let advisor of advisors"
-    [advisor]="advisor"
-  ></app-advisor-item>
+<div class="grid">
+  <app-sidenav></app-sidenav>
+  <div class="container">
+    <app-advisor-item
+      *ngFor="let advisor of advisors"
+      [advisor]="advisor"
+    ></app-advisor-item>
+  </div>
 </div>

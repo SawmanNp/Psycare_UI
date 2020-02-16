@@ -4,6 +4,11 @@
   direction: rtl;
 }
 
+.grid{
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
 .container {
   margin-left: 100px;
   display: flex;

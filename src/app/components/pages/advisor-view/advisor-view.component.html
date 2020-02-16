@@ -1,7 +1,7 @@
 <app-navigator></app-navigator>
 <div class="grid">
-  <div class="w3-container">
-    <div class="w3-row" style="width: 50%">
+  <div class="w3-container w3-row-padding">
+    <div class="w3-content" >
       <div class="w3-col w3-card-4 w3-container">
         <!--Name and Last name-->
         <header class="w3-padding-16 w3-center">
@@ -16,13 +16,13 @@
           />
         </div>
         <!--Description-->
-        <div class="w3-col w3-padding-16">
-          <p class="w3-right">
+        <div class="w3-col w3-padding-16 w3-pale-yellow">
+          <p class="w3-right w3-margin-right">
             {{ advisor.description }}
           </p>
         </div>
         <!--Rating-->
-        <div class="w3-col w3-padding-16" style="padding-left: 38%;">
+        <div class="w3-col w3-padding-16" style="padding-left: 40%;">
           <app-star-rating
             [rating]="advisor.rating / 2"
             [isEditable]="false"
