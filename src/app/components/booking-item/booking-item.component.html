@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="date">
+    <h6>تاریخ :</h6>
+    <h6>{{ date }}</h6>
+  </div>
+  <app-schedule-view [schedule]="schedules"></app-schedule-view>
+  <div *ngIf="hasAppointments">
+    <div class="exclude">
+      <h6>زمان‌های پر شده</h6>
+      <div>
+        <p *ngFor="let apts of appointments">
+          {{ apts.end_datetime.getMinutes() }} :
+          {{ apts.end_datetime.getHours() }}
+          -
+          {{ apts.start_datetime.getMinutes() }}:
+          {{ apts.start_datetime.getHours() }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="reserveField" *ngIf="!isPast">
+    <div>
+      <input
+        placeholder="آغاز دوره"
+        aria-label="24hr format"
+        [ngxTimepicker]="timer1"
+        [(ngModel)]="time1"
+        [format]="24"
+        readonly
+      />
+      <ngx-material-timepicker #timer1></ngx-material-timepicker>
+    </div>
+    <h6>تا</h6>
+    <div>
+      <input
+        placeholder="پایان دوره"
+        aria-label="24hr format"
+        [ngxTimepicker]="timer2"
+        [(ngModel)]="time2"
+        [format]="24"
+        readonly
+      />
+      <ngx-material-timepicker #timer2></ngx-material-timepicker>
+    </div>
+    <button class="btn" (click)="setAppointment()">
+      رزرو
+    </button>
+  </div>
+</div>

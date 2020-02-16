@@ -1,0 +1,9 @@
+<app-navigator></app-navigator>
+<app-sidenav></app-sidenav>
+<div>
+  <app-booking-item
+    *ngFor="let BI of bookingItems"
+    [item]="BI"
+    [advisorId]="advisorId"
+  ></app-booking-item>
+</div>

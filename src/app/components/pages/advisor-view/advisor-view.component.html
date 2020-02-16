@@ -17,9 +17,9 @@
       </div>
       <!--Description-->
       <div class="w3-col w3-padding-16">
-          <p class="w3-right">
-            {{ advisor.description }}
-          </p>
+        <p class="w3-right">
+          {{ advisor.description }}
+        </p>
       </div>
       <!--Rating-->
       <div class="w3-col w3-padding-16" style="padding-left: 38%;">
@@ -27,7 +27,9 @@
       </div>
       <!--Actions-->
       <footer>
-        <button class="w3-btn w3-green" *ngIf="!isMyself">book</button>
+        <button class="w3-btn w3-green" *ngIf="!isMyself" (click)="book()">
+          book
+        </button>
         <button class="w3-btn w3-yellow" *ngIf="isMyself">Edit</button>
         <button class="w3-btn w3-red" *ngIf="isAdmin">Disqualify</button>
       </footer>
