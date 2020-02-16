@@ -1,4 +1,4 @@
-@root = http://127.0.0.1:9001
+@root = http://37.152.183.6:9001
 @api = {{root}}/api/v1
 
 ### 1. Create user:

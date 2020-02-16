@@ -1,10 +1,114 @@
 <!-- create le appointment's view -->
-<h6>{{ appointment.ID }}</h6>
-<button *ngIf="userViewer && isPast" (click)="rate()">rate</button>
-<button
-  [disabled]="isCanceled"
-  *ngIf="userViewer && !isPast"
-  (click)="cancel()"
->
-  cancel
-</button>
+
+<div class="w3-card-2 w3-margin w3-cell-row w3-pale-green">
+  <!--Status-->
+  <div class="w3-container w3-cell w3-cell-middle w3-mobile" >
+    <img
+      src="../../../assets/svg/circle-solid-red.svg"
+      alt="sa"
+      style="height: 30px;"
+      *ngIf="isPast"
+      tooltip="گذشته" placement="top"
+    />
+    <img
+      src="../../../assets/svg/circle-solid-green.svg"
+      alt="sa"
+      style="height: 30px;"
+      *ngIf="!isPast"
+      tooltip="در جریان" placement="top"
+    />
+  </div>
+  <!--appointment id-->
+  <div class="w3-container w3-cell w3-cell-middle w3-mobile">
+    <p class="title">
+      شناسه :
+    </p>
+    <p class="content">
+      {{ appointment.ID }}
+    </p>
+  </div>
+  <!--date-->
+  <div class="w3-container w3-cell w3-cell-middle w3-mobile">
+    <p class="title">
+      تاریخ :
+    </p>
+    <p class="content">
+      {{ appointment.start_datetime.toLocaleDateString("fa-IR") }}
+    </p>
+  </div>
+  <!--day-->
+  <div class="w3-container w3-cell w3-cell-middle w3-mobile">
+    <p class="title">
+      روز :
+    </p>
+    <p class="content">
+      {{ day }}
+    </p>
+  </div>
+  <!--start time-->
+  <div class="w3-container w3-cell w3-cell-middle w3-mobile">
+    <p class="title">
+      ساعت شروع :
+    </p>
+    <p class="content">
+      {{
+        appointment.start_datetime.getHours() +
+          ":" +
+          appointment.start_datetime.getMinutes() +
+          ":" +
+          appointment.start_datetime.getSeconds()
+      }}
+    </p>
+  </div>
+  <!--end time-->
+  <div class="w3-container w3-cell w3-cell-middle w3-mobile">
+    <p class="title">
+      ساعت پایان :
+    </p>
+    <p class="content">
+      {{
+        appointment.end_datetime.getHours() +
+          ":" +
+          appointment.end_datetime.getMinutes() +
+          ":" +
+          appointment.end_datetime.getSeconds()
+      }}
+    </p>
+  </div>
+  <!--advisor section-->
+  <div class="w3-container w3-cell w3-cell-middle w3-mobile">
+    <p class="title">
+      شناسه مشاور :
+      <span>
+        <button
+          class="w3-button w3-blue-gray w3-round-large"
+          (click)="viewAdvisor()"
+        >
+          {{ appointment.advisor_id }}
+        </button>
+      </span>
+    </p>
+  </div>
+  <!--rate button-->
+  <div
+    class="w3-container w3-cell w3-cell-middle w3-mobile"
+    *ngIf="userViewer && isPast"
+  >
+    <button class="w3-btn w3-yellow w3-round-large" (click)="rate()">
+      امتیاز بدهید
+    </button>
+  </div>
+  <!--cancel button button-->
+  <div
+    class="w3-container w3-cell w3-cell-middle w3-mobile"
+    *ngIf="userViewer && !isPast"
+  >
+    <button
+      class="w3-btn w3-red w3-round-large"
+      [disabled]="isCanceled"
+      (click)="cancel()"
+    >
+      کنسل کنید
+    </button>
+  </div>
+</div>
