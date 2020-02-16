@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpService } from '../services/http.service';
-import { urls } from '../services/url.enum';
-import { Router } from '@angular/router';
+import { Injectable } from "@angular/core";
+import { HttpService } from "../services/http.service";
+import { urls } from "../services/url.enum";
+import { Router } from "@angular/router";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class RegisterService {
   constructor(private http: HttpService, private router: Router) {}
@@ -15,8 +15,7 @@ export class RegisterService {
         email: mail,
         password: pass
       };
-      this.http.post(urls.register, body).subscribe();
-      this.router.navigateByUrl('/login');
+      return this.http.post(urls.register, body);
     } catch (error) {
       console.log(error);
     }
