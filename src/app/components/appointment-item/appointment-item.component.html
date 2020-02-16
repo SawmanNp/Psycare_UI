@@ -1,6 +1,6 @@
 <!-- create le appointment's view -->
 
-<div class="w3-card-2 w3-margin w3-cell-row w3-pale-green">
+<div class="w3-card-2 w3-margin w3-padding-16 w3-cell-row w3-pale-green">
   <!--Status-->
   <div class="w3-container w3-cell w3-cell-middle w3-mobile" >
     <img
@@ -23,6 +23,7 @@
     <p class="title">
       شناسه :
     </p>
+    <br>
     <p class="content">
       {{ appointment.ID }}
     </p>
@@ -32,6 +33,7 @@
     <p class="title">
       تاریخ :
     </p>
+    <br>
     <p class="content">
       {{ appointment.start_datetime.toLocaleDateString("fa-IR") }}
     </p>
@@ -41,6 +43,7 @@
     <p class="title">
       روز :
     </p>
+    <br>
     <p class="content">
       {{ day }}
     </p>
@@ -50,6 +53,7 @@
     <p class="title">
       ساعت شروع :
     </p>
+    <br>
     <p class="content">
       {{
         appointment.start_datetime.getHours() +
@@ -65,6 +69,7 @@
     <p class="title">
       ساعت پایان :
     </p>
+    <br>
     <p class="content">
       {{
         appointment.end_datetime.getHours() +

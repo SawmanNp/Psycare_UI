@@ -3,3 +3,10 @@
 *{
     direction: rtl;
 }
+
+.title{
+    color: darkslategray;
+}
+.content{
+    font-size: large;
+}
