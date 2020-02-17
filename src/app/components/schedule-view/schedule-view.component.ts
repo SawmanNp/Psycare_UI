@@ -11,7 +11,8 @@ export class ScheduleViewComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-  timeHM(date: Date): string {
+  timeHM(time: Date): string {
+    var date = new Date(time);
     return date.getHours().toString() + ":" + date.getMinutes().toString();
   }
   setDay(day: number): string {

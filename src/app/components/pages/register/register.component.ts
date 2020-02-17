@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
       this.reg
         .register(formValue.username, formValue.email, formValue.password)
         .subscribe(res => {
-          if (res["status"] == 500) {
+          if (res["status"] == 200) {
             console.log("register succeed!");
             this.router.navigateByUrl("/login");
           }

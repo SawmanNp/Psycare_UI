@@ -8,7 +8,7 @@ import { Schedule } from "src/app/models/Schedule";
 })
 export class ScheduleItemComponent implements OnInit {
   @Output() getSchedule = new EventEmitter();
-  day: number;
+  day: string;
   time1: string;
   time2: string;
   schedule: Schedule;
@@ -25,7 +25,11 @@ export class ScheduleItemComponent implements OnInit {
 
   setSchedule() {
     if (this.time1 && this.time2 && this.day && this.time1 < this.time2) {
-      this.schedule = new Schedule(this.time1, this.time2, this.day);
+      this.schedule = new Schedule(
+        this.time1,
+        this.time2,
+        Number.parseInt(this.day)
+      );
       this.getSchedule.emit(this.schedule);
     }
   }

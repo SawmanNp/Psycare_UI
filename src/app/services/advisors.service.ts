@@ -48,12 +48,12 @@ export class AdvisorsService {
   }
   setSchedule(body: Schedule[]): Observable<any> {
     var data = {
-      periods: [body]
+      periods: body
     };
     console.log(data);
     return this.http.post(urls.schedule, data);
   }
-  updateSchedule(body: Schedule[]): Observable<any> {
-    return this.http.put(urls.schedule, body);
+  deleteSchedule(): Observable<any> {
+    return this.http.delete(urls.schedule);
   }
 }
