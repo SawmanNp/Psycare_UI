@@ -1,7 +1,7 @@
 <app-navigator></app-navigator>
 <div class="grid">
   <div class="w3-container w3-row-padding">
-    <div class="w3-content" >
+    <div class="w3-content">
       <div class="w3-col w3-card-4 w3-container">
         <!--Name and Last name-->
         <header class="w3-padding-16 w3-center">
@@ -34,7 +34,6 @@
           <button class="w3-btn w3-green" *ngIf="!isMyself" (click)="book()">
             book
           </button>
-          <button class="w3-btn w3-yellow" *ngIf="isMyself">Edit</button>
           <button class="w3-btn w3-red" *ngIf="isAdmin">Disqualify</button>
         </footer>
       </div>

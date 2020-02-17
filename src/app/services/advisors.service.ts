@@ -17,29 +17,9 @@ export class AdvisorsService {
     private auth: AuthenticationService
   ) {}
 
-  getAdvisors(): Advisor[] {
-    return [
-      {
-        id: 1,
-        first_name: "mamood",
-        last_name: "karimi",
-        description: "very nice advisor",
-        picUrl: "https://freesvg.org/img/cliente.png",
-        hourly_fee: 50
-      },
-      {
-        id: 2,
-        first_name: "سامان",
-        last_name: "نهاوندی",
-        description: "دسکریپشن",
-        picUrl: "https://freesvg.org/img/cliente.png",
-        hourly_fee: 50
-      }
-    ];
+  getAdvisors(): Observable<any> {
+    return this.http.get(urls.advisors);
   }
-  // getAdvisors():Observable<Advisor[]>{
-  //   return this.http.get(urls.advisors);
-  // }
 
   upgrade(
     firstName: string,
@@ -60,16 +40,16 @@ export class AdvisorsService {
     }
   }
 
-  getAdvisor(id: string): Observable<Advisor> {
+  getAdvisor(id: string): Observable<any> {
     return this.http.get(urls.advisors + "/" + id);
   }
   getSchedule(): Observable<any> {
     return this.http.get(urls.schedule);
   }
-  setSchedule(body: Schedule[]): void {
-    this.http.post(urls.schedule, body).subscribe();
+  setSchedule(body: Schedule[]): Observable<any> {
+    return this.http.post(urls.schedule, body);
   }
-  updateSchedule(body: Schedule[]): void {
-    this.http.put(urls.schedule, body).subscribe();
+  updateSchedule(body: Schedule[]): Observable<any> {
+    return this.http.put(urls.schedule, body);
   }
 }

@@ -28,18 +28,9 @@ export class AdvisorViewComponent implements OnInit {
 
   ngOnInit() {
     this.advisorid = this.route.snapshot.paramMap.get("advId");
-    // this.adv.getAdvisor(this.advisorid).subscribe(adv => {
-    //   this.advisor = adv;
-    // });
-    //TODO: delete these later
-    this.advisor = {
-      id: 1,
-      first_name: "pepe",
-      last_name: "le frog",
-      description: "le true pepega",
-      rating: 5,
-      hourly_fee: 100
-    };
+    this.adv.getAdvisor(this.advisorid).subscribe(res => {
+      if (res["status"] == 200) this.advisor = res["data"];
+    });
     if (this.auth.user) {
       if (this.auth.user.id.toString() == this.advisorid) this.isMyself = true;
       if (this.auth.user.roles.includes("admin")) this.isAdmin = true;

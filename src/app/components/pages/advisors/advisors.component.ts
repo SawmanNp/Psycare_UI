@@ -12,6 +12,8 @@ export class AdvisorsComponent implements OnInit {
   constructor(private adv: AdvisorsService) {}
 
   ngOnInit() {
-    this.advisors = this.adv.getAdvisors();
+    this.adv.getAdvisors().subscribe(res => {
+      if (res["status"] == 200) this.advisors = res["data"];
+    });
   }
 }

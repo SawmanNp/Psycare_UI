@@ -1,6 +1,6 @@
 <app-navigator></app-navigator>
 <app-sidenav></app-sidenav>
-<app-schedule-view [schedule]="periods"></app-schedule-view>
+<app-schedule-view *ngIf="hasSchedule" [schedule]="periods"></app-schedule-view>
 <div *ngIf="editMode">
   <app-schedule-item (getSchedule)="addSchedule($event)"></app-schedule-item>
   <button (click)="send()">ارسال</button>
