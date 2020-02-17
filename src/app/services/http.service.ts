@@ -12,8 +12,8 @@ export class HttpService {
   getHeaders() {
     console.log(this.cookie);
     let urlHeaders = new HttpHeaders().set("Content-Type", "application/json");
-    urlHeaders = urlHeaders.set("Accept", "application/json");
-    urlHeaders = urlHeaders.set("Authorization", "Bearer " + this.cookie);
+    urlHeaders.set("Accept", "application/json");
+    urlHeaders.set("Authorization", "BEARER " + this.cookie);
     return urlHeaders;
   }
 
@@ -24,7 +24,6 @@ export class HttpService {
   }
 
   post(relativeUrl: string, data: any): Observable<any> {
-    console.log(this.getHeaders());
     return this.http.post(urls.baseUrl + relativeUrl, data, {
       headers: this.getHeaders()
     });
