@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>از عملکرد مشاور خود چقدر راضی بودید؟</h1>
+<div mat-dialog-content>
+  <p *ngIf="data.ratingDisabled" style="color: red;">شما قبلا امتیاز داده اید</p>
+  <mat-slider
+    class="example-margin"
+    [disabled]="data.ratingDisabled"
+    [max]="5"
+    [min]="0"
+    [step]="1"
+    [thumbLabel]="true"
+    [(ngModel)]="data.rating"
+    [vertical]="false"
+  >
+  </mat-slider>
+</div>
+<div mat-dialog-actions>
+  <button
+    class="w3-button w3-red w3-round-xlarge w3-margin"
+    (click)="onNoClick()"
+  >
+    امتیاز نمی دهم
+  </button>
+  <button
+    class="w3-button w3-blue w3-round-xlarge w3-margin"
+    [mat-dialog-close]="data.rating"
+    cdkFocusInitial
+  >
+    ثبت
+  </button>
+</div>

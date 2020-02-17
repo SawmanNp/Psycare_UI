@@ -1,7 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Appointment } from 'src/app/models/Appointment';
 import { AppointmentsService } from '../../services/appointments.service';
 import { Router } from '@angular/router';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-appointment-item',
@@ -11,35 +16,41 @@ import { Router } from '@angular/router';
 export class AppointmentItemComponent implements OnInit {
   @Input() viewer: string;
   @Input() appointment: Appointment;
-  userViewer: boolean = false;
-  isPast: boolean = false;
-  isCanceled: boolean = false;
+  userViewer = false;
+  isPast = false;
+  isCanceled = false;
+  rating: number;
+  ratingDisabled = false;
 
-  day: string = '' ;
+  day = '';
 
-  constructor(private aps: AppointmentsService, private router: Router) {}
+  constructor(
+    private aps: AppointmentsService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
-    var today = new Date();
-    if (this.appointment.end_datetime <= today) this.isPast = true;
-    if (this.viewer == 'user') this.userViewer = true;
+    const today = new Date();
+    if (this.appointment.end_datetime <= today) { this.isPast = true; }
+    if (this.viewer == 'user') { this.userViewer = true; }
     this.isCanceled = this.appointment.Cancelled;
     this.day = this.persianDay(this.appointment.start_datetime.getDay());
   }
 
   cancel(): void {
-    //send the request
+    // send the request
     // this.aps.cancel(this.appointment.ID)
-    this.appointment.Cancelled=true;
+    this.appointment.Cancelled = true;
     this.isCanceled = true;
   }
   rate(): void {
-    //send the request
+    // send the request
     // this.aps.rate(this.appointment.ID, leRate);
   }
 
   viewAdvisor() {
-    this.router.navigateByUrl("advisor/view/" + this.appointment.advisor_id);
+    this.router.navigateByUrl('advisor/view/' + this.appointment.advisor_id);
   }
 
   persianDay(num: number): string {
@@ -68,5 +79,43 @@ export class AppointmentItemComponent implements OnInit {
         break;
     }
     return d;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '350px',
+      height: '250px',
+      data: { rating: this.rating, ratingDisabled: this.ratingDisabled }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if(result !== undefined){
+        this.rating = result * 2;
+        this.ratingDisabled=true;
+        this.rate();
+      }
+    });
+  }
+}
+
+export interface DialogData {
+  rating: number;
+  ratingDisabled: string;
+}
+
+@Component({
+  selector: "dialog-overview-example-dialog",
+  templateUrl: './dialog-overview-example-dialog.html',
+  styleUrls: ['./dialog-overview-example-dialog.css']
+})
+export class DialogOverviewExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

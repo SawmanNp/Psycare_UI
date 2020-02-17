@@ -6,6 +6,8 @@ import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { StarRatingModule } from 'angular-rating-star';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -25,6 +27,7 @@ import { ScheduleComponent } from "./components/pages/schedule/schedule.componen
 import { ScheduleItemComponent } from './components/schedule-item/schedule-item.component';
 import { AppointmentsComponent } from './components/pages/appointments/appointments.component';
 import { AppointmentItemComponent } from './components/appointment-item/appointment-item.component';
+import { DialogOverviewExampleDialog } from './components/appointment-item/appointment-item.component';
 import { ScheduleViewComponent } from './components/schedule-view/schedule-view.component';
 import { BookingComponent } from './components/pages/booking/booking.component';
 import { BookingItemComponent } from './components/booking-item/booking-item.component';
@@ -50,7 +53,8 @@ import { BookingItemComponent } from './components/booking-item/booking-item.com
     AppointmentItemComponent,
     ScheduleViewComponent,
     BookingComponent,
-    BookingItemComponent
+    BookingItemComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -61,9 +65,11 @@ import { BookingItemComponent } from './components/booking-item/booking-item.com
     NgxMaterialTimepickerModule,
     BrowserAnimationsModule,
     StarRatingModule,
-    TooltipModule
+    TooltipModule,
+    MatDialogModule,
+    MatSliderModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DialogOverviewExampleDialog]
 })
 export class AppModule {}
