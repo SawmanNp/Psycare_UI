@@ -37,7 +37,8 @@ export class AdvisorViewComponent implements OnInit {
       first_name: "pepe",
       last_name: "le frog",
       description: "le true pepega",
-      rating: 5
+      rating: 5,
+      hourly_fee: 100
     };
     if (this.auth.user) {
       if (this.auth.user.id.toString() == this.advisorid) this.isMyself = true;
