@@ -18,7 +18,7 @@ export class ScheduleComponent implements OnInit {
     this.periods = [];
     this.adv.getSchedule().subscribe(res => {
       if (res["status"] == 200) {
-        this.periods = res["data"];
+        this.periods = res["data"]["periods"];
         console.log("schedules set");
       }
     });
@@ -28,6 +28,8 @@ export class ScheduleComponent implements OnInit {
     } else this.editMode = true;
   }
   addSchedule(sch: Schedule) {
+    console.log(sch);
+    console.log(this.periods);
     this.periods = this.periods || [];
     this.periods.push(sch);
   }

@@ -47,7 +47,11 @@ export class AdvisorsService {
     return this.http.get(urls.schedule);
   }
   setSchedule(body: Schedule[]): Observable<any> {
-    return this.http.post(urls.schedule, body);
+    var data = {
+      periods: [body]
+    };
+    console.log(data);
+    return this.http.post(urls.schedule, data);
   }
   updateSchedule(body: Schedule[]): Observable<any> {
     return this.http.put(urls.schedule, body);
