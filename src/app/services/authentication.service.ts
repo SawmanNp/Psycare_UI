@@ -17,22 +17,6 @@ export class AuthenticationService {
         if (res["status"] == 200) this.user = res["data"];
         router.navigateByUrl("panel");
       });
-
-    var obj = JSON.stringify({
-      periods: [
-        {
-          day_of_week: 4,
-          start_time: "2020-02-14T12:04:47+03:30",
-          end_time: "2020-02-14T12:34:47+03:30"
-        },
-        {
-          day_of_week: 6,
-          start_time: "2020-02-15T12:04:47+03:30",
-          end_time: "2020-02-15T12:34:47+03:30"
-        }
-      ]
-    });
-    console.log(obj);
   }
 
   login(user: string, pass: string): Observable<any> {

@@ -29,7 +29,13 @@ export class AdvisorViewComponent implements OnInit {
   ngOnInit() {
     this.advisorid = this.route.snapshot.paramMap.get("advId");
     this.adv.getAdvisor(this.advisorid).subscribe(res => {
-      if (res["status"] == 200) this.advisor = res["data"];
+      if (res["status"] == 200) {
+        this.advisor = res["data"];
+        this.advisor.rating = 5;
+      }
+      this.adv.getAdvisorRating(this.advisorid).subscribe(res => {
+        if (res["status"] == 200) this.advisor.rating = res["data"];
+      });
     });
     if (this.auth.user) {
       if (this.auth.user.id.toString() == this.advisorid) this.isMyself = true;

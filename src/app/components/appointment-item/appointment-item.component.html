@@ -2,27 +2,30 @@
 
 <div class="w3-card-2 w3-margin w3-padding-16 w3-cell-row w3-pale-green">
   <!--Status-->
-  <div class="w3-container w3-cell w3-cell-middle w3-mobile" >
+  <div class="w3-container w3-cell w3-cell-middle w3-mobile">
     <img
       src="../../../assets/svg/circle-solid-red.svg"
       alt="sa"
       style="height: 30px;"
       *ngIf="isPast && !appointment.Cancelled"
-      tooltip="تمام شده" placement="top"
+      tooltip="تمام شده"
+      placement="top"
     />
     <img
       src="../../../assets/svg/circle-solid-green.svg"
       alt="sa"
       style="height: 30px;"
       *ngIf="!isPast && !appointment.Cancelled"
-      tooltip="در جریان" placement="top"
+      tooltip="در جریان"
+      placement="top"
     />
     <img
       src="../../../assets/svg/times-circle-solid.svg"
       alt="sa"
       style="height: 30px;"
       *ngIf="isCanceled || appointment.Cancelled"
-      tooltip="کنسل شده" placement="top"
+      tooltip="کنسل شده"
+      placement="top"
     />
   </div>
   <!--appointment id-->
@@ -30,7 +33,7 @@
     <p class="title">
       شناسه :
     </p>
-    <br>
+    <br />
     <p class="content">
       {{ appointment.ID }}
     </p>
@@ -40,9 +43,9 @@
     <p class="title">
       تاریخ :
     </p>
-    <br>
+    <br />
     <p class="content">
-      {{ appointment.start_datetime.toLocaleDateString("fa-IR") }}
+      {{ localDate() }}
     </p>
   </div>
   <!--day-->
@@ -50,7 +53,7 @@
     <p class="title">
       روز :
     </p>
-    <br>
+    <br />
     <p class="content">
       {{ day }}
     </p>
@@ -60,14 +63,14 @@
     <p class="title">
       ساعت شروع :
     </p>
-    <br>
+    <br />
     <p class="content">
       {{
-        appointment.start_datetime.getHours() +
+        getAsDate(appointment.start_datetime).getHours() +
           ":" +
-          appointment.start_datetime.getMinutes() +
+          getAsDate(appointment.start_datetime).getMinutes() +
           ":" +
-          appointment.start_datetime.getSeconds()
+          getAsDate(appointment.start_datetime).getSeconds()
       }}
     </p>
   </div>
@@ -76,14 +79,14 @@
     <p class="title">
       ساعت پایان :
     </p>
-    <br>
+    <br />
     <p class="content">
       {{
-        appointment.end_datetime.getHours() +
+        getAsDate(appointment.end_datetime).getHours() +
           ":" +
-          appointment.end_datetime.getMinutes() +
+          getAsDate(appointment.end_datetime).getMinutes() +
           ":" +
-          appointment.end_datetime.getSeconds()
+          getAsDate(appointment.end_datetime).getSeconds()
       }}
     </p>
   </div>

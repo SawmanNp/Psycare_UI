@@ -36,10 +36,18 @@ export class BookingItemComponent implements OnInit {
     )
       this.hasAppointments = true;
   }
+
+  getAsDate(d: Date): Date {
+    return new Date(d);
+  }
   setAppointment() {
     var start = this.setDate(this.item.day, this.time1);
     var end = this.setDate(this.item.day, this.time2);
-    this.aps.setAppointment(this.advisorId, start, end);
+    this.aps
+      .setAppointment(parseInt(this.advisorId), start, end)
+      .subscribe(res => {
+        if (res["status"] == 200) console.log("appointment added!");
+      });
     console.log(start);
     console.log(end);
   }

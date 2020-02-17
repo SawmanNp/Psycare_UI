@@ -23,72 +23,21 @@ export class BookingComponent implements OnInit {
 
   ngOnInit() {
     this.advisorId = this.route.snapshot.paramMap.get("advId");
-    // this.aps.getAdvisorSchedule(this.advisorId).subscribe(res => {
-    //   if (res["status"] == 200) this.advisorSchedule = res("data");
-    // });
-    // this.aps.getAdvisorAppointmentsById(this.advisorId).subscribe(res => {
-    //   if (res["status"] == 200) this.advisorAppointments = res("data");
-    // });
-    this.advisorSchedule = [
-      {
-        day_of_week: 4,
-        start_time: new Date("2020-02-14T12:04:47+03:30"),
-        end_time: new Date("2020-02-14T12:34:47+03:30")
-      },
-      {
-        day_of_week: 0,
-        start_time: new Date("2020-02-14T12:04:47+03:30"),
-        end_time: new Date("2020-02-14T12:34:47+03:30")
-      },
-      {
-        day_of_week: 3,
-        start_time: new Date("2020-02-14T12:04:47+03:30"),
-        end_time: new Date("2020-02-14T12:34:47+03:30")
-      },
-      {
-        day_of_week: 2,
-        start_time: new Date("2020-02-17T12:04:47+03:30"),
-        end_time: new Date("2020-02-17T16:34:47+03:30")
-      },
-      {
-        day_of_week: 6,
-        start_time: new Date("2020-02-14T12:04:47+03:30"),
-        end_time: new Date("2020-02-14T12:34:47+03:30")
-      }
-    ];
-    this.advisorAppointments = [
-      {
-        ID: 1,
-        UserID: 1,
-        advisor_id: 2,
-        start_datetime: new Date("2020-02-18T13:19:53.148+03:30"),
-        end_datetime: new Date("2020-02-18T14:49:53.148+03:30"),
-        Cancelled: false
-      },
-      {
-        ID: 2,
-        UserID: 1,
-        advisor_id: 2,
-        start_datetime: new Date("2020-02-16T22:19:53.148+03:30"),
-        end_datetime: new Date("2020-02-16T22:49:53.148+03:30"),
-        Cancelled: false
-      },
-      {
-        ID: 2,
-        UserID: 1,
-        advisor_id: 2,
-        start_datetime: new Date("2020-02-18T22:19:53.148+03:30"),
-        end_datetime: new Date("2020-02-18T22:49:53.148+03:30"),
-        Cancelled: false
-      }
-    ];
-    var today = new Date();
-    today.setHours(0);
-    today.setMinutes(0);
-    today.setSeconds(0);
+    this.aps.getAdvisorSchedule(this.advisorId).subscribe(res => {
+      if (res["status"] == 200) this.advisorSchedule = res["data"]["periods"];
+    });
+    this.aps.getAdvisorAppointmentsById(this.advisorId).subscribe(res => {
+      if (res["status"] == 200) this.advisorAppointments = res["data"];
+      var today = new Date();
+      today.setHours(0);
+      today.setMinutes(0);
+      today.setSeconds(0);
 
-    this.set(today);
-    console.log(today);
+      this.set(today);
+      console.log(today);
+      console.log(this.advisorSchedule);
+      console.log(this.advisorAppointments);
+    });
   }
 
   nextWeek() {
@@ -117,27 +66,32 @@ export class BookingComponent implements OnInit {
   }
 
   sameDay(d1: Date, d2: Date): boolean {
+    var date1 = new Date(d1);
+    var date2 = new Date(d2);
     return (
-      d1.getFullYear() === d2.getFullYear() &&
-      d1.getMonth() === d2.getMonth() &&
-      d1.getDate() === d2.getDate()
+      date1.getFullYear() === date2.getFullYear() &&
+      date1.getMonth() === date2.getMonth() &&
+      date1.getDate() === date2.getDate()
     );
   }
 
-  set(today: Date): void {
+  set(tod: Date): void {
+    var today = new Date(tod);
     for (var i = 0; i < 7; i++) {
       var bookingItemSchedule: Schedule[] = [];
       var bookingitemAppointments: Appointment[] = [];
-      this.advisorSchedule.forEach(schd => {
-        if (schd.day_of_week == today.getDay()) {
-          bookingItemSchedule.push(schd);
-        }
-      });
-      this.advisorAppointments.forEach(appt => {
-        if (this.sameDay(appt.start_datetime, today)) {
-          bookingitemAppointments.push(appt);
-        }
-      });
+      if (this.advisorSchedule.length > 0)
+        this.advisorSchedule.forEach(schd => {
+          if (schd.day_of_week == today.getDay()) {
+            bookingItemSchedule.push(schd);
+          }
+        });
+      if (this.advisorAppointments.length > 0)
+        this.advisorAppointments.forEach(appt => {
+          if (this.sameDay(appt.start_datetime, today)) {
+            bookingitemAppointments.push(appt);
+          }
+        });
       if (
         typeof bookingItemSchedule !== "undefined" &&
         bookingItemSchedule.length > 0

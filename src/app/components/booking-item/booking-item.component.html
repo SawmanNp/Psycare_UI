@@ -9,11 +9,11 @@
       <h6>زمان‌های پر شده</h6>
       <div>
         <p *ngFor="let apts of appointments">
-          {{ apts.end_datetime.getMinutes() }} :
-          {{ apts.end_datetime.getHours() }}
+          {{ getAsDate(apts.end_datetime).getMinutes() }} :
+          {{ getAsDate(apts.end_datetime).getHours() }}
           -
-          {{ apts.start_datetime.getMinutes() }}:
-          {{ apts.start_datetime.getHours() }}
+          {{ getAsDate(apts.start_datetime).getMinutes() }}:
+          {{ getAsDate(apts.start_datetime).getHours() }}
         </p>
       </div>
     </div>

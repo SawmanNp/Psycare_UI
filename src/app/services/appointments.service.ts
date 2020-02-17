@@ -10,25 +10,25 @@ import { Schedule } from "../models/Schedule";
 })
 export class AppointmentsService {
   constructor(private http: HttpService) {}
-  getAdvisorSchedule(id: string) {
+  getAdvisorSchedule(id: string): Observable<any> {
     return this.http.get(urls.schedule + "/" + id);
   }
-  getAdvisorAppointmentsById(id: string) {
+  getAdvisorAppointmentsById(id: string): Observable<any> {
     return this.http.get(urls.advisorAppointments + "/" + id);
   }
-  getAdvisorAppointments(): Observable<Appointment[]> {
+  getAdvisorAppointments(): Observable<any> {
     return this.http.get(urls.advisorAppointments);
   }
-  getUserAppointments(): Observable<Appointment[]> {
+  getUserAppointments(): Observable<any> {
     return this.http.get(urls.userAppointments);
   }
-  setAppointment(id: string, start: Date, end: Date) {
+  setAppointment(id: number, start: Date, end: Date): Observable<any> {
     var data = {
       advisor_id: id,
       start_datetime: start,
       end_datetime: end
     };
-    this.http.post(urls.appointments, data);
+    return this.http.post(urls.appointments, data);
   }
   cancelAppointment(id: number): Observable<any> {
     return this.http.delete("appointments/" + id);

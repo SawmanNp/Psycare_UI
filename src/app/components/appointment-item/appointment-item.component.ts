@@ -1,29 +1,36 @@
-import { Component, OnInit, Input, Inject, Output, EventEmitter } from '@angular/core';
-import { Appointment } from 'src/app/models/Appointment';
-import { AppointmentsService } from '../../services/appointments.service';
-import { Router } from '@angular/router';
+import {
+  Component,
+  OnInit,
+  Input,
+  Inject,
+  Output,
+  EventEmitter
+} from "@angular/core";
+import { Appointment } from "src/app/models/Appointment";
+import { AppointmentsService } from "../../services/appointments.service";
+import { Router } from "@angular/router";
 import {
   MatDialog,
   MatDialogRef,
   MAT_DIALOG_DATA
-} from '@angular/material/dialog';
+} from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-appointment-item',
-  templateUrl: './appointment-item.component.html',
-  styleUrls: ['./appointment-item.component.css']
+  selector: "app-appointment-item",
+  templateUrl: "./appointment-item.component.html",
+  styleUrls: ["./appointment-item.component.css"]
 })
 export class AppointmentItemComponent implements OnInit {
   @Input() viewer: string;
   @Input() appointment: Appointment;
-  @Output() onCancel= new EventEmitter<number>();
+  @Output() onCancel = new EventEmitter<number>();
   userViewer = false;
   isPast = false;
   isCanceled = false;
   rating: number;
   ratingDisabled = false;
 
-  day = '';
+  day = "";
 
   constructor(
     private aps: AppointmentsService,
@@ -33,10 +40,26 @@ export class AppointmentItemComponent implements OnInit {
 
   ngOnInit() {
     const today = new Date();
-    if (this.appointment.end_datetime <= today) { this.isPast = true; }
-    if (this.viewer == 'user') { this.userViewer = true; }
+    if (this.appointment.end_datetime <= today) {
+      this.isPast = true;
+    }
+    if (this.viewer == "user") {
+      this.userViewer = true;
+    }
     this.isCanceled = this.appointment.Cancelled;
-    this.day = this.persianDay(this.appointment.start_datetime.getDay());
+    this.day = this.persianDay(
+      new Date(this.appointment.start_datetime).getDay()
+    );
+  }
+
+  localDate(): string {
+    return new Date(this.appointment.start_datetime).toLocaleDateString(
+      "fa-IR"
+    );
+  }
+
+  getAsDate(d: Date): Date {
+    return new Date(d);
   }
 
   cancel(): void {
@@ -52,32 +75,32 @@ export class AppointmentItemComponent implements OnInit {
   }
 
   viewAdvisor() {
-    this.router.navigateByUrl('advisor/view/' + this.appointment.advisor_id);
+    this.router.navigateByUrl("advisor/view/" + this.appointment.advisor_id);
   }
 
   persianDay(num: number): string {
-    let d = '';
+    let d = "";
     switch (num) {
       case 0:
-        d = 'یکشنبه';
+        d = "یکشنبه";
         break;
       case 1:
-        d = 'دوشنبه';
+        d = "دوشنبه";
         break;
       case 2:
-        d = 'سه شنبه';
+        d = "سه شنبه";
         break;
       case 3:
-        d = 'چهارشنبه';
+        d = "چهارشنبه";
         break;
       case 4:
-        d = 'پنج شنبه';
+        d = "پنج شنبه";
         break;
       case 5:
-        d = 'جمعه';
+        d = "جمعه";
         break;
       case 6:
-        d = 'شنبه';
+        d = "شنبه";
         break;
     }
     return d;
@@ -85,16 +108,16 @@ export class AppointmentItemComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '350px',
-      height: '250px',
+      width: "350px",
+      height: "250px",
       data: { rating: this.rating, ratingDisabled: this.ratingDisabled }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      if(result !== undefined){
+      if (result !== undefined) {
         this.rating = result * 2;
-        this.ratingDisabled=true;
+        this.ratingDisabled = true;
         this.rate();
       }
     });
@@ -108,8 +131,8 @@ export interface DialogData {
 
 @Component({
   selector: "dialog-overview-example-dialog",
-  templateUrl: './dialog-overview-example-dialog.html',
-  styleUrls: ['./dialog-overview-example-dialog.css']
+  templateUrl: "./dialog-overview-example-dialog.html",
+  styleUrls: ["./dialog-overview-example-dialog.css"]
 })
 export class DialogOverviewExampleDialog {
   constructor(

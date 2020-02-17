@@ -56,4 +56,7 @@ export class AdvisorsService {
   deleteSchedule(): Observable<any> {
     return this.http.delete(urls.schedule);
   }
+  getAdvisorRating(id: string): Observable<any> {
+    return this.http.get("/advisors/" + id + "/rating");
+  }
 }
