@@ -30,4 +30,14 @@ export class AppointmentsService {
     };
     this.http.post(urls.appointments, data);
   }
+  cancelAppointment(id: number): Observable<any> {
+    return this.http.delete("appointments/" + id);
+  }
+  rateAppointment(id: number, rate: number): Observable<any> {
+    var data = {
+      appointment_id: id,
+      score: rate
+    };
+    return this.http.post("appointments/rate", data);
+  }
 }
