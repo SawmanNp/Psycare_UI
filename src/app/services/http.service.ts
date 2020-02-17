@@ -12,8 +12,8 @@ export class HttpService {
   getHeaders() {
     console.log(this.cookie);
     let urlHeaders = new HttpHeaders().set("Content-Type", "application/json");
-    urlHeaders.set("Accept", "application/json");
-    urlHeaders.set("Authorization", "BEARER " + this.cookie);
+    urlHeaders = urlHeaders.set("Accept", "application/json");
+    urlHeaders = urlHeaders.set("Authorization", "Bearer " + this.cookie);
     return urlHeaders;
   }
 
