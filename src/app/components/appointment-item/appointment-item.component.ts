@@ -64,14 +64,21 @@ export class AppointmentItemComponent implements OnInit {
 
   cancel(): void {
     // send the request
-    //this.aps.cancel(this.appointment.ID)
-    this.onCancel.emit(this.appointment.ID);
-    this.appointment.Cancelled = true;
-    this.isCanceled = true;
+    this.aps.cancelAppointment(this.appointment.id).subscribe(res => {
+      if (res["status"] == 200) {
+        this.onCancel.emit(this.appointment.id);
+        this.appointment.Cancelled = true;
+        this.isCanceled = true;
+      }
+    });
   }
   rate(): void {
-    // send the request
-    // this.aps.rate(this.appointment.ID, leRate);
+    // TODO: check if it works later
+    this.aps
+      .rateAppointment(this.appointment.id, this.rating)
+      .subscribe(res => {
+        if (res["status"] == 200) console.log("rate() works!");
+      });
   }
 
   viewAdvisor() {

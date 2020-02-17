@@ -88,7 +88,7 @@ export class BookingComponent implements OnInit {
         });
       if (this.advisorAppointments.length > 0)
         this.advisorAppointments.forEach(appt => {
-          if (this.sameDay(appt.start_datetime, today)) {
+          if (!appt.Cancelled && this.sameDay(appt.start_datetime, today)) {
             bookingitemAppointments.push(appt);
           }
         });

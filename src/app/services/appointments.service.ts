@@ -31,7 +31,10 @@ export class AppointmentsService {
     return this.http.post(urls.appointments, data);
   }
   cancelAppointment(id: number): Observable<any> {
-    return this.http.delete("appointments/" + id);
+    var body = {
+      appointment_id: id
+    };
+    return this.http.post("/appointments/cancel", body);
   }
   rateAppointment(id: number, rate: number): Observable<any> {
     var data = {
