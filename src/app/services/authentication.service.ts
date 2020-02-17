@@ -33,6 +33,7 @@ export class AuthenticationService {
 
   setCookie(cookie: string) {
     document.cookie = "jwt=" + cookie;
+    this.http.cookie = cookie;
   }
 
   setUser(user: User) {
