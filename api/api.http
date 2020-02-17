@@ -1,12 +1,13 @@
-@root = http://37.152.183.6:9001
+@root = http://194.5.192.43
+@remote = http://194.5.192.43
 @api = {{root}}/api/v1
 
 ### 1. Create user:
 POST {{api}}/users
 
 {
-    "username":"user2",
-    "email":"abceedfs@gmail.com",
+    "username":"user1",
+    "email":"absss@gmail.com",
     "password":"omegalul"
 }
 
@@ -34,11 +35,12 @@ Cookie: {{auth.response.headers.Set-Cookie}}
 {
     "first_name":"mamood",
     "last_name":"bozorge",
-    "description":"failing advisor"
+    "description":"failing advisor",
+    "hourly_fee":60
 }
 
 ### 5. Get a single advisor with id:
-@id=2
+@id=11
 GET {{api}}/advisors/{{id}}
 
 ### 6. Get advisors with pagination:
@@ -54,9 +56,9 @@ POST {{api}}/appointments
 Cookie: {{auth.response.headers.Set-Cookie}}
 
 {
-    "advisor_id":2,
-    "start_datetime":"2020-02-16T18:49:53.148Z",
-    "end_datetime":"2020-02-16T19:19:53.148Z"
+    "advisor_id":1,
+    "start_datetime":"2020-02-16T13:38:53.148Z",
+    "end_datetime":"2020-02-16T14:05:53.148Z"
 }
 
 ### 8. Add schedule for advisors:
@@ -68,12 +70,12 @@ Cookie: {{auth.response.headers.Set-Cookie}}
     "periods":
         [
             {
-                "day_of_week":4,
-                "start_time":"2020-02-14T12:04:47+03:30",
-                "end_time":"2020-02-14T12:34:47+03:30"
+                "day_of_week": 0,
+                "start_time":"2020-02-11T12:04:47+03:30",
+                "end_time":"2020-02-11T14:34:47+03:30"
             },
             {
-                "day_of_week":6,
+                "day_of_week": 6,
                 "start_time":"2020-02-15T12:04:47+03:30",
                 "end_time":"2020-02-15T12:34:47+03:30"
             }
@@ -97,10 +99,33 @@ POST {{api}}/appointments/rate
 Cookie: {{auth.response.headers.Set-Cookie}}
 
 {
-    "appointment_id":3,
-    "score":7
+    "appointment_id":1,
+    "score":8
 }
 
 ### 12. Get avg rating for an advisor:
 @adv_id=1
 GET {{api}}/advisors/{{adv_id}}/rating
+
+
+### 13. Cancel appointment
+POST {{api}}/appointments/cancel
+Cookie: {{auth.response.headers.Set-Cookie}}
+
+{
+    "appointment_id":4
+}
+
+
+### 14. Get Schedule for an advisor
+GET {{api}}/advisors/schedule
+Cookie: {{auth.response.headers.Set-Cookie}}
+
+
+### 15. Get Schedule for advisor with id (public)
+@adv_id=2
+GET {{api}}/advisors/schedule/{{adv_id}}
+
+### 16. Get appointments for advisor with id (public)
+@adv_id=2
+GET {{api}}/appointments/advisor/{{adv_id}}

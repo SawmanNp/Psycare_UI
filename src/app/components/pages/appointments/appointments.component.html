@@ -5,6 +5,7 @@
       [viewer]="[pagetype]"
       *ngFor="let apmnt of appointments"
       [appointment]="apmnt"
+      (onCancel)="onCancel($event)"
     ></app-appointment-item>
   </div>
   <app-sidenav></app-sidenav>

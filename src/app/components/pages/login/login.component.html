@@ -2,7 +2,15 @@
 <div class="container">
   <form [formGroup]="loginForm" (ngSubmit)="attemptLogin()">
     <div>
-      <label>نام کاربری</label>
+      <label
+        >نام کاربری
+        <span
+          [ngClass]="{
+            'become-red': loginForm.get('username').hasError('required')
+          }"
+          >*</span
+        >
+      </label>
       <input
         type="text"
         name="user-name"
@@ -11,7 +19,15 @@
       />
     </div>
     <div>
-      <label>کلمه عبور</label>
+      <label
+        >کلمه عبور
+        <span
+          [ngClass]="{
+            'become-red': loginForm.get('username').hasError('required')
+          }"
+          >*</span
+        >
+      </label>
       <input
         type="password"
         name="password"
@@ -20,6 +36,10 @@
       />
     </div>
     <a routerLink="/forgot">رمز عبور خود را فراموش کرده‌‌اید ؟</a>
-    <button class="btn" type="submit" name="login">ورود</button>
+    <button class="btn" type="submit" name="login" [disabled]="!loginForm.valid">ورود</button>
   </form>
+  <div class="container">
+    <p style="color: red;">{{error}}</p>
+  </div>
+  
 </div>

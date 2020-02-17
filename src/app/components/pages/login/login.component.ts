@@ -10,14 +10,20 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  error='';
   constructor(
     private fb: FormBuilder,
     private auth: AuthenticationService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      username: this.fb.control(""),
-      password: this.fb.control("")
+      username: this.fb.control("" , [
+        Validators.required,
+        Validators.pattern("^[A-Za-z0-9 ]+$")
+      ]),
+      password: this.fb.control("" , [
+        Validators.required
+      ])
     });
   }
 
@@ -33,6 +39,13 @@ export class LoginComponent implements OnInit {
         console.log(this.auth.user);
         this.router.navigateByUrl("/panel");
       }
-    });
+    },
+    error=>{
+      if (error.error.status===403) {
+        this.error='نام کاربری یا رمز عبور اشتباه است';
+      }
+    }
+    
+    );
   }
 }

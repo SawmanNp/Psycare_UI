@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+
 import { ActivatedRoute, Router, Route } from "@angular/router";
 import { Appointment } from "src/app/models/Appointment";
 import { AppointmentsService } from "../../../services/appointments.service";
@@ -40,8 +41,8 @@ export class AppointmentsComponent implements OnInit {
           ID: 2,
           UserID: 1,
           advisor_id: 2,
-          start_datetime: new Date("2020-02-17T22:19:53.148+03:30"),
-          end_datetime: new Date("2020-02-17T22:49:53.148+03:30"),
+          start_datetime: new Date("2020-02-18T22:19:53.148+03:30"),
+          end_datetime: new Date("2020-02-18T22:49:53.148+03:30"),
           Cancelled: false
         }
       ];
@@ -49,4 +50,9 @@ export class AppointmentsComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  onCancel(id:number){
+    this.appointments[id].Cancelled=true;
+  }
+
 }

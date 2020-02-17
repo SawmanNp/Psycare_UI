@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Input, Inject, Output, EventEmitter } from '@angular/core';
 import { Appointment } from 'src/app/models/Appointment';
 import { AppointmentsService } from '../../services/appointments.service';
 import { Router } from '@angular/router';
@@ -16,6 +16,7 @@ import {
 export class AppointmentItemComponent implements OnInit {
   @Input() viewer: string;
   @Input() appointment: Appointment;
+  @Output() onCancel= new EventEmitter<number>();
   userViewer = false;
   isPast = false;
   isCanceled = false;
@@ -40,7 +41,8 @@ export class AppointmentItemComponent implements OnInit {
 
   cancel(): void {
     // send the request
-    // this.aps.cancel(this.appointment.ID)
+    //this.aps.cancel(this.appointment.ID)
+    this.onCancel.emit(this.appointment.ID);
     this.appointment.Cancelled = true;
     this.isCanceled = true;
   }
