@@ -25,18 +25,18 @@ export class BookingComponent implements OnInit {
     this.advisorId = this.route.snapshot.paramMap.get("advId");
     this.aps.getAdvisorSchedule(this.advisorId).subscribe(res => {
       if (res["status"] == 200) this.advisorSchedule = res["data"]["periods"];
-    });
-    this.aps.getAdvisorAppointmentsById(this.advisorId).subscribe(res => {
-      if (res["status"] == 200) this.advisorAppointments = res["data"];
-      var today = new Date();
-      today.setHours(0);
-      today.setMinutes(0);
-      today.setSeconds(0);
+      this.aps.getAdvisorAppointmentsById(this.advisorId).subscribe(res => {
+        if (res["status"] == 200) this.advisorAppointments = res["data"];
+        var today = new Date();
+        today.setHours(0);
+        today.setMinutes(0);
+        today.setSeconds(0);
 
-      this.set(today);
-      console.log(today);
-      console.log(this.advisorSchedule);
-      console.log(this.advisorAppointments);
+        this.set(today);
+        console.log(today);
+        console.log(this.advisorSchedule);
+        console.log(this.advisorAppointments);
+      });
     });
   }
 
